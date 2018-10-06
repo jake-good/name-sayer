@@ -24,7 +24,7 @@ public class SelectControl implements Initializable {
     public void Listen() {
         if (!List) {
             parse(_name.getText());
-            new NameModel(_name.getText(), "placeholder");
+
             new sceneChange("LISTEN");
         }
     }
@@ -53,7 +53,8 @@ public class SelectControl implements Initializable {
                 System.out.println("error");
             }
             // Concatenate the file names to make the new wav
-            new concatWorker(files).execute();
         }
+        new concatWorker(files).execute();
+        new NameModel(_name.getText(), "output.wav");
     }
 }

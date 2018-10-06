@@ -20,8 +20,8 @@
       <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
       <HBox layoutX="463.0" layoutY="305.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="SAVE" />
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="DISCARD">
+            <Button mnemonicParsing="false" onAction="#Save" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="SAVE" />
+            <Button mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="DISCARD">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -33,17 +33,12 @@
             </Button>
          </children>
       </HBox>
-      <Button layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
-      <Button layoutX="193.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
+      <Button layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
+      <Button layoutX="193.0" layoutY="305.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
       <Button layoutX="284.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PAUSE" />
       <Label fx:id="recordingFileName" layoutX="379.0" layoutY="262.0" text="Fred-Dagg(1)" textFill="#070707">
          <font>
             <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="Name" layoutX="353.0" layoutY="89.0" text="Fred Dagg" textFill="#140e0e">
-         <font>
-            <Font size="32.0" />
          </font>
       </Label>
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="25.0" layoutY="21.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
@@ -52,5 +47,19 @@
          </image>
       </ImageView>
       <Label layoutX="746.0" layoutY="21.0" onMouseClicked="#Listen" text="Return to listen" textFill="#a5721f" underline="true" />
+      <HBox layoutX="309.0" layoutY="106.0" spacing="40.0">
+         <children>
+            <Label text="Name:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name" prefHeight="36.0" text="Fred Dagg" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

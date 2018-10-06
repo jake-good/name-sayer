@@ -11,8 +11,8 @@
    <children>
       <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" prefWidth="429.0" spacing="40.0">
          <children>
-            <TextField prefHeight="29.0" prefWidth="149.0" promptText="First name" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
-            <TextField prefHeight="29.0" prefWidth="149.0" promptText="Family Name" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
+            <TextField fx:id="_firstName" prefHeight="29.0" prefWidth="149.0" promptText="First name" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
+            <TextField fx:id="_familyName" prefHeight="29.0" prefWidth="149.0" promptText="Family Name" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
             <Button fx:id="_listenButton" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="LISTEN" />
          </children>
       </HBox>

@@ -16,7 +16,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
     public Void doInBackground(){
 
         //Records the attempt at saying the name.
-        String cmd = "ffmpeg -f alsa -i default  -t 3 'names/" + _currentName +
+        String cmd = "ffmpeg -f alsa -i default  -t 3 'DataBase-VoNZ-word/" + _currentName +
                 "/" + _currentName +".wav'";
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);

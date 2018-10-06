@@ -1,4 +1,4 @@
-package NameSayerGUI;
+package UIscenes;
 
 import javax.swing.*;
 

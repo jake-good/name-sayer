@@ -19,7 +19,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="_nameLabel" prefHeight="36.0" prefWidth="140.0" text="Fred Dagg" textFill="WHITE">
+            <Label fx:id="_nameLabel" prefHeight="36.0" text="Fred Dagg" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -70,5 +70,6 @@
          </image>
       </ImageView>
       <Label layoutX="405.0" layoutY="298.0" text="Volume" />
+      <Label layoutX="389.0" layoutY="470.0" onMouseClicked="#Rate" text="Rate this name" textFill="#fcfcfc" underline="true" />
    </children>
 </AnchorPane>

@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 public class ListenControl implements Initializable {
 
     private NameModel _currentName;
-    private int _nameIndex;
 
     public Label _nameLabel;
 
@@ -23,31 +22,32 @@ public class ListenControl implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        _nameIndex = 0;
         setName();
     }
 
     public void setName() {
-        _currentName = NameModel._Names.get(_nameIndex);
+        _currentName = NameModel._Names.get(NameModel._currentName);
         _nameLabel.setText(_currentName.getName());
     }
 
     public void next() {
-        if (_nameIndex < NameModel._Names.size() - 1) {
-            _nameIndex++;
-            setName();
-        }
+        NameModel.next();
+
     }
 
     public void previous() {
-        if (_nameIndex > 0) {
-            _nameIndex--;
-            setName();
-        }
+        NameModel.prev();
+
     }
 
     public void play() {
         // Play the current name via the filename
+        new playWorker(_currentName.getFileName()).execute();
+    }
+
+    public void Rate() {
+        // Placeholder, this method should get a number between 1 - 5 and set that as the rating for a particular name.
+        _currentName.Rate();
     }
 
 }

@@ -1,4 +1,4 @@
-package NameSayerGUI;
+package UIscenes;
 
 import javafx.application.Platform;
 
@@ -7,13 +7,9 @@ import javax.swing.*;
 public class recordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
-    private int _fileCount;
-    private nameView _view;
 
-    public recordingWorker(String currentName, int fileCount, nameView view){
+    public recordingWorker(String currentName){
         _currentName = currentName;
-        _fileCount = fileCount;
-        _view = view;
     }
 
     @Override
@@ -21,7 +17,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
 
         //Records the attempt at saying the name.
         String cmd = "ffmpeg -f alsa -i default  -t 3 'names/" + _currentName +
-                "/attempt" + _fileCount + "_" + _currentName +".wav'";
+                "/" + _currentName +".wav'";
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{
@@ -39,8 +35,8 @@ public class recordingWorker extends SwingWorker<Void,Void> {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                _view.getAttempts();
-                _view.setDone();
+                //_view.getAttempts();
+                //_view.setDone();
             }
         });
     }

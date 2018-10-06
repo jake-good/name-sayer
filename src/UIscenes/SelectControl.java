@@ -53,6 +53,7 @@ public class SelectControl implements Initializable {
                 System.out.println("error");
             }
             // Concatenate the file names to make the new wav
+            new concatWorker(files).execute();
         }
     }
 }

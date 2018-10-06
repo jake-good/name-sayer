@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,54 +12,45 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
-      <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="130.0" layoutY="217.0">
+      <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="392.0" layoutY="159.0">
          <image>
             <Image url="@../images/icons8-micro-filled-500.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" layoutX="299.0" layoutY="217.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="REMOVE">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PAUSE" />
-         </children>
-      </VBox>
-      <HBox alignment="CENTER" layoutX="157.0" layoutY="107.0">
-         <children>
-            <Label text="Fred Dagg" textFill="#2c2b2b">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="35.0" fitWidth="39.0">
-               <image>
-                  <Image url="@../images/icons8-play-filled-500.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox layoutX="538.0" layoutY="151.0">
+      <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
+      <HBox layoutX="463.0" layoutY="305.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="SAVE" />
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="126.0" style="-fx-background-color: #a5721f;" text="VIEW ATTEMPT">
+            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="DISCARD">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="126.0" style="-fx-background-color: #a5721f;" text="VIEW ATTEMPTS">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <ListView layoutX="544.0" layoutY="203.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="_compare" layoutX="197.0" layoutY="432.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
+      <Button layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
+      <Button layoutX="193.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
+      <Button layoutX="284.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PAUSE" />
+      <Label fx:id="recordingFileName" layoutX="379.0" layoutY="262.0" text="Fred-Dagg(1)" textFill="#070707">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="Name" layoutX="353.0" layoutY="89.0" text="Fred Dagg" textFill="#140e0e">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="25.0" layoutY="21.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-home-page-96%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="746.0" layoutY="21.0" onMouseClicked="#Listen" text="Return to listen" textFill="#a5721f" underline="true" />
    </children>
 </AnchorPane>

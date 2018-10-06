@@ -50,7 +50,7 @@
             <Image url="@../images/icons8-play-filled-500.png" />
          </image>
       </ImageView>
-      <Button fx:id="_recordButtom" contentDisplay="RIGHT" layoutX="667.0" layoutY="236.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="RECORD" />
+      <Button contentDisplay="RIGHT" layoutX="667.0" layoutY="236.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="RECORD" />
       <Slider layoutX="287.0" layoutY="278.0" prefHeight="14.0" prefWidth="277.0" />
       <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="401.0">
          <image>

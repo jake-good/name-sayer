@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="392.0" layoutY="159.0">
          <image>
@@ -33,7 +33,7 @@
             </Button>
          </children>
       </HBox>
-      <Button fx:id="_compare" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
+      <Button layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
       <Button layoutX="193.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
       <Button layoutX="284.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PAUSE" />
       <Label fx:id="recordingFileName" layoutX="379.0" layoutY="262.0" text="Fred-Dagg(1)" textFill="#070707">

@@ -7,9 +7,11 @@ import javax.swing.*;
 public class recordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
+    private String _recName;
 
-    public recordingWorker(String currentName){
+    public recordingWorker(String currentName, String recName){
         _currentName = currentName;
+        _recName = recName;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
 
         //Records the attempt at saying the name.
         String cmd = "ffmpeg -f alsa -i default  -t 3 'DataBase-VoNZ-word/" + _currentName +
-                "/" + _currentName +".wav'";
+                "/" + _recName + ".wav'";
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{

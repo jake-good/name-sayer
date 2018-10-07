@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,21 +13,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
-      <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="392.0" layoutY="159.0" onMouseClicked="#Record">
+      <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="395.0" layoutY="184.0" onMouseClicked="#Record">
          <image>
             <Image url="@../images/icons8-micro-filled-500.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
-      <HBox layoutX="463.0" layoutY="305.0">
+      <HBox layoutX="168.0" layoutY="282.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#Save" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="SAVE" />
-            <Button mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="DISCARD">
+            <TextField fx:id="_recordingName" prefHeight="29.0" prefWidth="207.0" promptText="Recording name" style="-fx-background-color: #617596; -fx-background-radius: 0px;">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets right="10.0" />
                </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="126.0" style="-fx-background-color: #a5721f;" text="VIEW ATTEMPTS">
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#Record" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="CREATE RECORDING">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -34,13 +34,7 @@
          </children>
       </HBox>
       <Button layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
-      <Button layoutX="193.0" layoutY="305.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
-      <Button layoutX="284.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PAUSE" />
-      <Label fx:id="recordingFileName" layoutX="379.0" layoutY="262.0" text="Fred-Dagg(1)" textFill="#070707">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
+      <Button layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="25.0" layoutY="21.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons8-home-page-96%20(1).png" />
@@ -61,5 +55,9 @@
             </Label>
          </children>
       </HBox>
+      <Button layoutX="538.0" layoutY="354.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="DISCARD" />
+      <Label fx:id="recLabel" layoutX="284.0" layoutY="361.0" text="No recording selected" textFill="#fffdfd" />
+      <Label layoutX="649.0" layoutY="288.0" onMouseClicked="#changeActiveRecording" text="Choose another recording" textFill="WHITE" underline="true" />
+      <Label layoutX="139.0" layoutY="361.0" text="Currently selected:" textFill="WHITE" />
    </children>
 </AnchorPane>

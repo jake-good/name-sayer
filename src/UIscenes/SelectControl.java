@@ -5,11 +5,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import sun.font.EAttribute;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class SelectControl implements Initializable {
@@ -25,9 +27,25 @@ public class SelectControl implements Initializable {
 
     public void Listen() {
         if (!List) {
-            parse(_name.getText());
-
+            //parse(_name.getText());
+            new NameModel(_name.getText(), "output.wav");
             new sceneChange("LISTEN");
+        }
+    }
+
+    public void uploadFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Audio Files", "*.txt", "*.mp3", "*.aac"));
+        Window stage = new Stage();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        String fileName = "";
+        if (selectedFile != null) {
+            fileName = selectedFile.getName();
+            try {
+                getList(fileName);
+            } catch (Exception e) {}
         }
     }
 
@@ -39,36 +57,9 @@ public class SelectControl implements Initializable {
 
     }
 
-    public void parse(String input) {
-        /**
-        String[] names  = input.split(" |-");
-        List<String> files = new ArrayList<String>();
-        for (String name : names) {
-            String cmd = "ls DataBase VoNZ word/*" + name + ".wav";
-            System.out.println(cmd);
-            ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", cmd);
-            try {
-                Process process = builder.start();
-                InputStream stdout = process.getInputStream();
-                BufferedReader stdoutBuffered = new BufferedReader(new InputStreamReader(stdout));
-                String line = null;
-                while ((line = stdoutBuffered.readLine()) != null) {
-                    files.add(line);
-                }
-            } catch (Exception e) {
-                System.out.println("error");
-            }
-            // Concatenate the file names to make the new wav
-        }
-        if (new File("output.wav").exists()) {
-            new File("output.wav").delete();
-        }
-         **/
-        new concatWorker(input).execute();
 
-    }
 
-    public void getList() throws Exception {
+    public void getList(String name) throws Exception {
         File namesList = new File("names.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
             String line;

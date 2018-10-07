@@ -96,8 +96,10 @@ public class RecordControl implements Initializable {
                 new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"));
         Window stage = new Stage();
         File selectedFile = fileChooser.showOpenDialog(stage);
-        String fileName = selectedFile.getName();
-        setActiveRecording(fileName.substring(0, fileName.lastIndexOf('.')));
+        if (selectedFile != null) {
+            String fileName = selectedFile.getName();
+            setActiveRecording(fileName.substring(0, fileName.lastIndexOf('.')));
+        }
     }
 
     public void Play() {

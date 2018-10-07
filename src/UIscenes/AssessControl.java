@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,7 @@ public class AssessControl implements Initializable {
     public Button _go;
     private NameModel _currentName;
     @FXML public ComboBox<Integer> _numberOfCompares;
+    public Label _nameLabel;
 
     public void Return() {
         new sceneChange("RECORD");
@@ -38,5 +40,6 @@ public class AssessControl implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         _currentName = NameModel._Names.get(NameModel._currentName);
         _numberOfCompares.getItems().setAll(1, 2, 3, 4, 5, 6);
+        _nameLabel.setText(_currentName.getName());
     }
 }

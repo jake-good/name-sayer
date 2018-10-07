@@ -12,11 +12,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.AssessControl">
    <children>
-      <Label layoutX="333.0" layoutY="122.0" text="Fred Dagg" textFill="#2c2b2b">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
       <ImageView fitHeight="83.0" fitWidth="79.0" layoutX="100.0" layoutY="180.0" onMouseClicked="#playAttempt">
          <image>
             <Image url="@../images/icons8-play-filled-500.png" />
@@ -46,5 +41,19 @@
          </children>
       </HBox>
       <Label layoutX="24.0" layoutY="14.0" onMouseClicked="#Return" text="Back to recording" textFill="#b58037" underline="true" />
+      <HBox layoutX="312.0" layoutY="162.0" spacing="40.0">
+         <children>
+            <Label text="Name:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="_nameLabel" prefHeight="36.0" text="Fred Dagg" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

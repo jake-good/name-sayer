@@ -40,6 +40,7 @@ public class SelectControl implements Initializable {
     }
 
     public void parse(String input) {
+        /**
         String[] names  = input.split(" |-");
         List<String> files = new ArrayList<String>();
         for (String name : names) {
@@ -62,8 +63,9 @@ public class SelectControl implements Initializable {
         if (new File("output.wav").exists()) {
             new File("output.wav").delete();
         }
-        new concatWorker(files).execute();
-        new NameModel(_name.getText(), "output.wav");
+         **/
+        new concatWorker(input).execute();
+
     }
 
     public void getList() throws Exception {
@@ -71,7 +73,8 @@ public class SelectControl implements Initializable {
         try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
             String line;
             while ((line = br.readLine()) != null) {
-                parse(line);
+                //parse(line);
+                new NameModel(line, "output.wav");
             }
         }
         new sceneChange("LISTEN");

@@ -25,6 +25,7 @@ public class ListenControl implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setName();
+        new concatWorker(_currentName._Name).execute();
     }
 
     public void setName() {
@@ -34,12 +35,14 @@ public class ListenControl implements Initializable {
 
     public void next() {
         NameModel.next();
-
+        setName();
+        new concatWorker(_currentName._Name).execute();
     }
 
     public void previous() {
         NameModel.prev();
-
+        setName();
+        new concatWorker(_currentName._Name).execute();
     }
 
     public void play() {

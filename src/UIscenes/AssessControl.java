@@ -19,7 +19,7 @@ public class AssessControl implements Initializable {
     }
 
     public void playAttempt(){
-        new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
+        new playWorker("'DataBase VoNZ word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
     }
 
     public void playDataBase(){

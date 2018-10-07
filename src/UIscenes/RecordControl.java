@@ -68,7 +68,7 @@ public class RecordControl implements Initializable {
     }
 
     public void Record() {
-        new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
+        new File("DataBase VoNZ word/" + _currentName.getName()).mkdir();
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
         String recName = _recordingName.getText();
         new recordingWorker(_currentName.getName(), recName).execute();
@@ -76,14 +76,14 @@ public class RecordControl implements Initializable {
     }
 
     public void Discard() {
-        new File("DataBase-VoNZ-word/"+ _currentName.getName() + "/"+ _activeRecording + ".wav").delete();
+        new File("DataBase VoNZ word/"+ _currentName.getName() + "/"+ _activeRecording + ".wav").delete();
         setActiveRecording("No Recording selected");
     }
 
     public void changeActiveRecording() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
-        fileChooser.setInitialDirectory(new File("DataBase-VoNZ-word/"+ _currentName.getName()));
+        fileChooser.setInitialDirectory(new File("DataBase VoNZ word/"+ _currentName.getName()));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"));
         Window stage = new Stage();
@@ -93,7 +93,7 @@ public class RecordControl implements Initializable {
     }
 
     public void Play() {
-        new playWorker("'DataBase-VoNZ-word/"+ _currentName.getName() + "/"+ _activeRecording + ".wav'").execute();
+        new playWorker("'DataBase VoNZ word/"+ _currentName.getName() + "/"+ _activeRecording + ".wav'").execute();
     }
 
     public void setActiveRecording(String name) {

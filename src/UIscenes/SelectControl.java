@@ -43,7 +43,7 @@ public class SelectControl implements Initializable {
         String[] names  = input.split(" |-");
         List<String> files = new ArrayList<String>();
         for (String name : names) {
-            String cmd = "ls DataBase-VoNZ-word/*" + name + ".wav";
+            String cmd = "ls DataBase VoNZ word/*" + name + ".wav";
             System.out.println(cmd);
             ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", cmd);
             try {

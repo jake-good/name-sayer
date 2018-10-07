@@ -21,19 +21,18 @@ public class AssessControl implements Initializable {
     }
 
     public void playAttempt(){
-        new playWorker("'DataBase VoNZ word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
+        new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
     }
 
     public void playDataBase(){
         new playWorker("output.wav").execute();
     }
 
+
+
     public void compare(){
         int numberOfCompares = _numberOfCompares.getValue();
-        for(int i =0;i<numberOfCompares;i++){
-            playDataBase();
-            playAttempt();
-        }
+        new compareWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'",numberOfCompares).execute();
     }
 
     @Override

@@ -18,6 +18,8 @@ public class ListenControl implements Initializable {
 
     public void Select() {
         new sceneChange("SELECT");
+        NameModel._Names.clear();
+        NameModel._currentName = 0;
     }
 
     @Override

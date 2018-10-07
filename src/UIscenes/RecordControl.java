@@ -99,5 +99,6 @@ public class RecordControl implements Initializable {
     public void setActiveRecording(String name) {
         _activeRecording = name;
         recLabel.setText(name);
+        _currentName.set_recName(name);
     }
 }

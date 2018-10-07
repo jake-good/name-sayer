@@ -8,6 +8,8 @@ import java.util.List;
 public class NameModel {
     public String _Name;
     public String _FileName;
+    public String _recFileName;
+    public String _recName;
     public int _Attempts;
     public static List<NameModel> _Names;
     public static int _currentName;
@@ -44,6 +46,23 @@ public class NameModel {
 
     public String getName() {
         return _Name;
+    }
+
+
+    public void set_recFileName(String _recFileName) {
+        this._recFileName = _recFileName;
+    }
+
+    public void set_recName(String _recName) {
+        this._recName = _recName;
+    }
+
+    public String get_recFileName() {
+        return _recFileName;
+    }
+
+    public String get_recName() {
+        return _recName;
     }
 
     public String getFileName() {

@@ -6,9 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +59,22 @@ public class SelectControl implements Initializable {
             }
             // Concatenate the file names to make the new wav
         }
+        if (new File("output.wav").exists()) {
+            new File("output.wav").delete();
+        }
         new concatWorker(files).execute();
         new NameModel(_name.getText(), "output.wav");
+    }
+
+    public void getList() throws Exception {
+        File namesList = new File("names.txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                parse(line);
+            }
+        }
+        new sceneChange("LISTEN");
+
     }
 }

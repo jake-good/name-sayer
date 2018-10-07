@@ -25,7 +25,7 @@
             <Font size="57.0" />
          </font>
       </Label>
-      <Label fx:id="_uploadList" layoutX="362.0" layoutY="349.0" text="Upload a list instead" textFill="WHITE" underline="true">
+      <Label fx:id="_uploadList" layoutX="362.0" layoutY="349.0" onMouseClicked="#getList" text="Upload a list instead" textFill="WHITE" underline="true">
          <font>
             <Font size="14.0" />
          </font>

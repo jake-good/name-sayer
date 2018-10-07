@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -20,6 +22,8 @@ public class RecordControl implements Initializable {
     public TextField _recordingName;
     private String _activeRecording;
     public Label recLabel;
+    public ImageView Mic;
+
 
     public Button cr;
     public Button p;
@@ -68,10 +72,14 @@ public class RecordControl implements Initializable {
     }
 
     public void Record() {
+        File file = new File("src/images/orange-mic.png");
+        javafx.scene.image.Image image = new Image(file.toURI().toString());
+        Mic.setImage(image);
+
         new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
         String recName = _recordingName.getText();
-        new recordingWorker(_currentName.getName(), recName).execute();
+        new recordingWorker(_currentName.getName(), recName, Mic).execute();
         setActiveRecording(recName);
     }
 

@@ -1,17 +1,22 @@
 package UIscenes;
 
 import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import javax.swing.*;
+import java.io.File;
 
 public class recordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
     private String _recName;
+    private ImageView _Mic;
 
-    public recordingWorker(String currentName, String recName){
+    public recordingWorker(String currentName, String recName, ImageView Mic){
         _currentName = currentName;
         _recName = recName;
+        _Mic = Mic;
     }
 
     @Override
@@ -39,6 +44,9 @@ public class recordingWorker extends SwingWorker<Void,Void> {
             public void run() {
                 //_view.getAttempts();
                 //_view.setDone();
+                File file = new File("src/images/black-mic.png");
+                javafx.scene.image.Image image = new Image(file.toURI().toString());
+                _Mic.setImage(image);
             }
         });
     }

@@ -12,7 +12,7 @@
       <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" spacing="40.0">
          <children>
             <TextField fx:id="_name" prefHeight="29.0" prefWidth="350.0" promptText="Enter Name" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
-            <Button fx:id="_listenButton" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="LISTEN" />
+            <Button fx:id="_listenButton" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" stylesheets="@css/style.css" text="LISTEN" />
          </children>
       </HBox>
       <Label layoutX="284.0" layoutY="237.0" text="What name(s) would you like to hear?" textFill="WHITE">

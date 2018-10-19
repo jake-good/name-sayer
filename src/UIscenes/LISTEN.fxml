@@ -32,7 +32,7 @@
             <Image url="@../images/icons8-play-filled-500.png" />
          </image>
       </ImageView>
-      <Button contentDisplay="RIGHT" layoutX="345.0" layoutY="372.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="RECORD AN ATTEMPT" />
+      <Button contentDisplay="RIGHT" layoutX="345.0" layoutY="372.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" stylesheets="@css/style.css" text="RECORD AN ATTEMPT" />
       <Slider layoutX="287.0" layoutY="278.0" prefHeight="14.0" prefWidth="277.0" />
       <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="401.0" onMouseClicked="#next">
          <image>
@@ -44,14 +44,14 @@
             <Image url="@../images/icons8-arrow-filled-100.png" />
          </image>
       </ImageView>
-      <Label layoutX="44.0" layoutY="462.0" text="Previous Name" />
-      <Label layoutX="728.0" layoutY="462.0" text="Next Name" />
+      <Label layoutX="44.0" layoutY="462.0" text="Previous Name" textFill="#a7a7a7" />
+      <Label layoutX="728.0" layoutY="462.0" text="Next Name" textFill="#a7a7a7" />
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="29.0" layoutY="26.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons8-home-page-96%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="400.0" layoutY="301.0" text="Volume" />
+      <Label layoutX="400.0" layoutY="301.0" text="Volume" textFill="#a8a8a8" />
       <Label layoutX="376.0" layoutY="470.0" onMouseClicked="#Rate" text="Rate this name" textFill="#fcfcfc" underline="true" />
    </children>
 </AnchorPane>

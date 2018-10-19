@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
       <HBox layoutX="168.0" layoutY="282.0">
@@ -21,15 +21,15 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="cr" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="CREATE RECORDING">
+            <Button fx:id="cr" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="CREATE RECORDING">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <Button fx:id="c" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
-      <Button fx:id="p" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
+      <Button fx:id="c" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" text="COMPARE" />
+      <Button fx:id="p" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" text="PLAY" />
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="25.0" layoutY="21.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons8-home-page-96%20(1).png" />
@@ -50,7 +50,7 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="d" layoutX="538.0" layoutY="354.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="DISCARD" />
+      <Button fx:id="d" layoutX="538.0" layoutY="354.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" text="DISCARD" />
       <Label fx:id="recLabel" layoutX="284.0" layoutY="361.0" text="No recording selected" textFill="#fffdfd" />
       <Label layoutX="649.0" layoutY="288.0" onMouseClicked="#changeActiveRecording" text="Choose another recording" textFill="WHITE" underline="true" />
       <Label layoutX="139.0" layoutY="361.0" text="Currently selected:" textFill="WHITE" />

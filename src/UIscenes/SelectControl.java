@@ -21,8 +21,6 @@ public class SelectControl implements Initializable {
     public TextField _name;
     private Boolean List;
 
-    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #8c6019;";
-    private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #a5721f;";
 
 
     public void Listen() {
@@ -52,8 +50,7 @@ public class SelectControl implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List = false;
-        _listenButton.setOnMouseEntered(e -> _listenButton.setStyle(HOVERED_BUTTON_STYLE));
-        _listenButton.setOnMouseExited(e -> _listenButton.setStyle(IDLE_BUTTON_STYLE));
+
 
     }
 

@@ -1,13 +1,19 @@
 package UIscenes;
 
 
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 import sun.font.EAttribute;
 
 import java.io.*;
@@ -20,8 +26,18 @@ public class SelectControl implements Initializable {
     public Label _uploadList;
     public TextField _name;
     private Boolean List;
+    @FXML private ImageView _menu;
+    @FXML private HBox slideInMenu;
+    private boolean _expanded;
 
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        List = false;
+        _expanded = false;
+        _menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+    }
 
     public void Listen() {
         if (!List) {
@@ -47,16 +63,7 @@ public class SelectControl implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        List = false;
-
-
-    }
-
-
-
-    public void getList(String name) throws Exception {
+    private void getList(String name) throws Exception {
         File namesList = new File("names.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
             String line;
@@ -66,6 +73,5 @@ public class SelectControl implements Initializable {
             }
         }
         new sceneChange("LISTEN");
-
     }
 }

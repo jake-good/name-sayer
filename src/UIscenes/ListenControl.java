@@ -1,7 +1,12 @@
 package UIscenes;
 
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +16,12 @@ public class ListenControl implements Initializable {
     private NameModel _currentName;
 
     public Label _nameLabel;
+    @FXML
+    private HBox slideInMenu;
+    @FXML
+    private ImageView menu;
+    @FXML private Label _homeLabel;
+    private boolean _expanded;
 
     public void Record() {
         new sceneChange("RECORD");
@@ -26,6 +37,11 @@ public class ListenControl implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setName();
         new concatWorker(_currentName._Name).execute();
+        _homeLabel.setOnMouseClicked(event -> new sceneChange("SELECT"));
+        menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+
     }
 
     public void setName() {
@@ -54,5 +70,4 @@ public class ListenControl implements Initializable {
         // Placeholder, this method should get a number between 1 - 5 and set that as the rating for a particular name.
         _currentName.Rate();
     }
-
 }

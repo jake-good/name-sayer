@@ -6,3 +6,11 @@
     -fx-background-color: #8c6019;
     -fx-scale-y: 0.9;
 }
+
+.menuLabel:hover{
+    -fx-background-color: #8c6019;
+}
+
+.text {
+    -fx-text-fill: white;
+}

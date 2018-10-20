@@ -1,12 +1,14 @@
 package UIscenes;
 
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -23,6 +25,10 @@ public class RecordControl implements Initializable {
     private String _activeRecording;
     public Label recLabel;
     public ImageView Mic;
+    @FXML
+    private ImageView _menu;
+    @FXML private HBox slideInMenu;
+    private boolean _expanded;
 
 
     public Button cr;
@@ -53,6 +59,9 @@ public class RecordControl implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         _currentName = NameModel._Names.get(NameModel._currentName);
         Name.setText(_currentName.getName());
+        _menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
     }
 
     public void Record() {

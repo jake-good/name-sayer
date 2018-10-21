@@ -46,7 +46,6 @@ public class SelectControl implements Initializable {
     @FXML private Label _reports;
     @FXML private Label _add;
     private boolean _expanded;
-    private Tooltip _addToolTip = new Tooltip();
     @FXML private Label _addArrow;
 
     @Override
@@ -60,8 +59,8 @@ public class SelectControl implements Initializable {
                 new sceneChange("REPORT", 350, 300);
         });
         setUp();
-        _addToolTip.setText("\nAdd to the list of names");
-        _addArrow.setTooltip(_addToolTip);
+        //Tooltip for the Arrow image
+        _add.setTooltip(new Tooltip("Add to the list of names"));
     }
 
     public void Listen() {

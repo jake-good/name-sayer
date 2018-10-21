@@ -83,6 +83,5 @@
          </graphic>
       </Label>
       <Button fx:id="_listenButton1" layoutX="638.0" layoutY="309.0" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="CLEAR" />
-      <Label fx:id="_addArrow" layoutX="438.0" layoutY="232.0" prefHeight="45.0" prefWidth="54.0" />
    </children>
 </AnchorPane>

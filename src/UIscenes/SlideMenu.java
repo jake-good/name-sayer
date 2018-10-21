@@ -14,11 +14,11 @@ public class SlideMenu {
     }
 
     public boolean SlideMenuMake() {
-        TranslateTransition slideIn = new TranslateTransition(Duration.millis(500), _slideInMenu);
+        TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _slideInMenu);
         slideIn.setFromY(-47);
         slideIn.setToY(0);
 
-        TranslateTransition slideOut = new TranslateTransition(Duration.millis(500), _slideInMenu);
+        TranslateTransition slideOut = new TranslateTransition(Duration.millis(250), _slideInMenu);
         slideOut.setFromY(0);
         slideOut.setToY(-47);
 

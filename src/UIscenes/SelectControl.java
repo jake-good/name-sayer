@@ -157,6 +157,7 @@ public class SelectControl implements Initializable {
             alert.setContentText("Please either search a name through the \nsearch bar, or upload a list with names!");
             alert.showAndWait();
         }
+        _name.clear();
     }
 
     public void clear() {

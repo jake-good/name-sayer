@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
       <HBox layoutX="168.0" layoutY="282.0">
@@ -21,20 +22,15 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="cr" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="CREATE RECORDING">
+            <Button fx:id="cr" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="CREATE RECORDING">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <Button fx:id="c" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="COMPARE" />
-      <Button fx:id="p" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="PLAY" />
-      <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="25.0" layoutY="21.0" onMouseClicked="#Select" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/icons8-home-page-96%20(1).png" />
-         </image>
-      </ImageView>
+      <Button fx:id="c" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" text="COMPARE" />
+      <Button fx:id="p" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" text="PLAY" />
       <Label layoutX="746.0" layoutY="21.0" onMouseClicked="#Listen" text="Return to listen" textFill="#a5721f" underline="true" />
       <HBox layoutX="309.0" layoutY="106.0" spacing="40.0">
          <children>
@@ -50,13 +46,49 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="d" layoutX="538.0" layoutY="354.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" style="-fx-background-color: #a5721f;" text="DISCARD" />
+      <Button fx:id="d" layoutX="538.0" layoutY="354.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" text="DISCARD" />
       <Label fx:id="recLabel" layoutX="284.0" layoutY="361.0" text="No recording selected" textFill="#fffdfd" />
       <Label layoutX="649.0" layoutY="288.0" onMouseClicked="#changeActiveRecording" text="Choose another recording" textFill="WHITE" underline="true" />
       <Label layoutX="139.0" layoutY="361.0" text="Currently selected:" textFill="WHITE" />
       <ImageView fx:id="Mic" fitHeight="82.0" fitWidth="78.0" layoutX="388.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/black-mic.png" />
+         </image>
+      </ImageView>
+      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutY="-1.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-363.0">
+         <children>
+            <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="menuLabel" />
+                  <String fx:value="text" />
+               </styleClass>
+            </Label>
+            <Label onMouseClicked="#Listen" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <Label style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <Label layoutX="187.0" layoutY="10.0" onMouseClicked="#Compare" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </HBox>
+      <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menu.png" />
          </image>
       </ImageView>
    </children>

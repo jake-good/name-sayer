@@ -145,10 +145,18 @@ public class SelectControl implements Initializable {
     }
 
     public void add(){
-        //Save the names, which is used to create the Name Model.
-        _concatName = _concatName + _name.getText() + " ";
-        //Updates the list view of all the chosen names.
-        _nameText.setText(_concatName);
+        if((_listName.contains(_name.getText()))) {
+            //Save the names, which is used to create the Name Model.
+            _concatName = _concatName + _name.getText() + " ";
+            //Updates the list view of all the chosen names.
+            _nameText.setText(_concatName);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Wrong Input Error");
+            alert.setHeaderText("ERROR! This name does not exist");
+            alert.setContentText("Please either search a name through the \nsearch bar, or upload a list with names!");
+            alert.showAndWait();
+        }
     }
 
     public void clear() {

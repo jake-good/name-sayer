@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,7 +32,7 @@ public class SelectControl implements Initializable {
 
     public String _concatName = "";
     public List<String> _listOfChosenNames = new ArrayList<String>();
-    public ListView<String> _chosenNames;
+    @FXML private Label _nameText;
     public Button _listenButton;
     public Label _uploadList;
     public TextField _name;
@@ -44,6 +41,7 @@ public class SelectControl implements Initializable {
     @FXML private ImageView _menu;
     @FXML private HBox slideInMenu;
     @FXML private Label _reports;
+    @FXML private Label _add;
 
     private boolean _expanded;
 
@@ -139,7 +137,12 @@ public class SelectControl implements Initializable {
         _listOfChosenNames.add(_name.getText());
         ObservableList<String> data = FXCollections.observableArrayList(_listOfChosenNames);
         //Updates the list view of all the chosen names.
-        _chosenNames.setItems(data);
+        _nameText.setText(_concatName);
+    }
+
+    public void clear() {
+        _concatName = "";
+        _nameText.setText(_concatName);
     }
 
 }

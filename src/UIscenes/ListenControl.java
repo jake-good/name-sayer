@@ -6,8 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.util.Duration;
+
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,9 +24,6 @@ public class ListenControl implements Initializable {
     private HBox slideInMenu;
     @FXML
     private ImageView menu;
-    @FXML private Label _homeLabel;
-    @FXML private Label _micTest;
-    @FXML private Pane _pane;
 
     private boolean _expanded;
 
@@ -35,24 +31,19 @@ public class ListenControl implements Initializable {
         new sceneChange("RECORD");
     }
 
-    public void Select() {
-        new sceneChange("SELECT");
-        NameModel._Names.clear();
-        NameModel._currentName = 0;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setName();
         new concatWorker(_currentName._Name).execute();
-        _homeLabel.setOnMouseClicked(event -> new sceneChange("SELECT"));
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
         });
-        _micTest.setOnMouseClicked(event -> {
-            _pane.setVisible(true);
-        });
+    }
 
+    public void Select() {
+        new sceneChange("SELECT");
+        NameModel._Names.clear();
+        NameModel._currentName = 0;
     }
 
     public void setName() {

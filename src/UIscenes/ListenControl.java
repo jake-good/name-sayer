@@ -85,7 +85,7 @@ public class ListenControl implements Initializable {
 
     public void listTransition() {
         TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _listViewPane);
-        slideIn.setFromY(-232);
+        slideIn.setFromY(250);
         slideIn.setToY(0);
 
         if (!_nameListExpanded) {
@@ -95,6 +95,7 @@ public class ListenControl implements Initializable {
         } else {
             slideIn.setRate(-1);
             slideIn.play();
+            _nameListExpanded=false;
         }
     }
 }

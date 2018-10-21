@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.ListenControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.ListenControl">
    <children>
       <HBox layoutX="130.0" layoutY="116.0" spacing="40.0">
          <children>
@@ -74,7 +74,7 @@
             <Image url="@../images/menu.png" />
          </image>
       </ImageView>
-      <Pane fx:id="_listViewPane" layoutX="325.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" translateY="232.0" AnchorPane.bottomAnchor="32.0">
+      <Pane fx:id="_listViewPane" layoutX="331.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" translateY="250.0" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="250.0">
          <children>
             <ListView prefHeight="200.0" prefWidth="200.0" />
          </children>

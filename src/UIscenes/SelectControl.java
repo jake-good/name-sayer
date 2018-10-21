@@ -57,6 +57,7 @@ public class SelectControl implements Initializable {
         _reports.setOnMouseClicked(event -> {
                 new sceneChange("REPORT", 350, 300);
         });
+        setUp();
     }
 
     public void Listen() {

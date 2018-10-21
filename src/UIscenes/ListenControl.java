@@ -8,10 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -69,14 +66,14 @@ public class ListenControl implements Initializable {
     }
 
     public void Rate() {
-        // Placeholder, this method should get a number between 1 - 5 and set that as the rating for a particular name.
-        File ratingFile = new File("ratings.txt");
+        File reportFile = new File("ratings.txt");
+        System.out.println("rated");
         try {
-            FileWriter fw = new FileWriter(ratingFile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(_currentName._Name + "\n");
-            _currentName.report();
+            Writer output = new BufferedWriter(new FileWriter(reportFile, true));
+            output.append(_currentName._Name + "\n");
+            output.close();
         } catch (IOException e) {
+            System.out.println("Error loading complaint log");
         }
     }
 }

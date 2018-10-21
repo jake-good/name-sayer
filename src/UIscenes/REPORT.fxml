@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #8c6019; -fx-border-color: black; -fx-border-radius: 2px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.ReportPane">
+   <children>
+      <ListView fx:id="_reportsList" layoutX="5.0" layoutY="61.0" prefHeight="235.0" prefWidth="341.0" style="-fx-background-color: #8c6019; -fx-border-radius: 0; -fx-border-width: 0px;" styleClass="list-cell" stylesheets="@css/style.css" />
+      <Label layoutX="21.0" layoutY="35.0" prefHeight="20.0" prefWidth="308.0" text="Names that have been reported for poor quality:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="_closeButton" fitHeight="19.0" fitWidth="24.0" layoutX="317.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-delete-416.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

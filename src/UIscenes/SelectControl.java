@@ -3,13 +3,17 @@ package UIscenes;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -28,6 +32,8 @@ public class SelectControl implements Initializable {
     private Boolean List;
     @FXML private ImageView _menu;
     @FXML private HBox slideInMenu;
+    @FXML private Label _reports;
+
     private boolean _expanded;
 
     @Override
@@ -36,6 +42,9 @@ public class SelectControl implements Initializable {
         _expanded = false;
         _menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+        _reports.setOnMouseClicked(event -> {
+                new sceneChange("REPORT", 350, 300);
         });
     }
 

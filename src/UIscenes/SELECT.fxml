@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.SelectControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.SelectControl">
    <children>
       <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" spacing="40.0">
          <children>
@@ -34,9 +34,9 @@
             <Font size="57.0" />
          </font>
       </Label>
-      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" maxHeight="115.0" opacity="0.49" prefHeight="47.0" prefWidth="350.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-350.0">
+      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" maxHeight="115.0" opacity="0.49" prefHeight="47.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-363.0">
          <children>
-            <Label graphicTextGap="0.0" stylesheets="@css/style.css" text="HOME" wrapText="true">
+            <Label graphicTextGap="0.0" style="-fx-background-color: #617596;" stylesheets="@css/style.css" text="HOME" wrapText="true">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -45,12 +45,17 @@
                   <String fx:value="text" />
                </styleClass>
             </Label>
-            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="MIC TEST" textFill="WHITE">
+            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </Label>
-            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="RATINGS" textFill="WHITE">
+            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <Label layoutX="274.0" layoutY="10.0" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -65,5 +70,6 @@
             <Image url="@../images/menu.png" />
          </image>
       </ImageView>
+      <Label fx:id="_reports" layoutX="718.0" layoutY="469.0" text="View Reported Names" />
    </children>
 </AnchorPane>

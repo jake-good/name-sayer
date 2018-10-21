@@ -47,8 +47,8 @@
       <Label layoutX="44.0" layoutY="462.0" text="Previous Name" textFill="#a7a7a7" />
       <Label layoutX="728.0" layoutY="462.0" text="Next Name" textFill="#a7a7a7" />
       <Label layoutX="400.0" layoutY="301.0" text="Volume" textFill="#a8a8a8" />
-      <Label layoutX="376.0" layoutY="470.0" onMouseClicked="#Rate" text="Rate this name" textFill="#fcfcfc" underline="true" />
-      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutY="-1.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" prefWidth="350.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-350.0">
+      <Label layoutX="376.0" layoutY="470.0" onMouseClicked="#Rate" text="Report this name" textFill="#fcfcfc" underline="true" />
+      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutY="-1.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-363.0">
          <children>
             <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
                <padding>
@@ -58,14 +58,19 @@
                   <String fx:value="menuLabel" />
                   <String fx:value="text" />
                </styleClass></Label>
-            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="MIC TEST" textFill="WHITE">
+            <Label fx:id="_micTest" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding></Label>
-            <Label styleClass="menuLabel" stylesheets="@css/style.css" text="RATINGS" textFill="WHITE">
+            <Label onMouseClicked="#Record" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding></Label>
+            <Label layoutX="274.0" layoutY="10.0" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
          </children>
          <padding>
             <Insets right="10.0" />

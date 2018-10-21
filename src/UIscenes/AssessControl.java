@@ -25,6 +25,11 @@ public class AssessControl implements Initializable {
         new sceneChange("RECORD");
     }
 
+    public void Listen() {
+        new sceneChange("LISTEN");
+    }
+
+
     public void playAttempt(){
         new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
     }

@@ -6,8 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +26,9 @@ public class ListenControl implements Initializable {
     @FXML
     private ImageView menu;
     @FXML private Label _homeLabel;
+    @FXML private Label _micTest;
+    @FXML private Pane _pane;
+
     private boolean _expanded;
 
     public void Record() {
@@ -40,6 +48,9 @@ public class ListenControl implements Initializable {
         _homeLabel.setOnMouseClicked(event -> new sceneChange("SELECT"));
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+        _micTest.setOnMouseClicked(event -> {
+            _pane.setVisible(true);
         });
 
     }
@@ -68,6 +79,13 @@ public class ListenControl implements Initializable {
 
     public void Rate() {
         // Placeholder, this method should get a number between 1 - 5 and set that as the rating for a particular name.
-        _currentName.Rate();
+        File ratingFile = new File("ratings.txt");
+        try {
+            FileWriter fw = new FileWriter(ratingFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(_currentName._Name + "\n");
+            _currentName.report();
+        } catch (IOException e) {
+        }
     }
 }

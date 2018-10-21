@@ -8,6 +8,8 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -31,6 +33,7 @@ import java.util.ResourceBundle;
 public class SelectControl implements Initializable {
 
     public String _concatName = "";
+    public TextArea _selectedNameArea;
     public List<String> _listOfChosenNames = new ArrayList<String>();
     @FXML private Label _nameText;
     public Button _listenButton;
@@ -134,8 +137,6 @@ public class SelectControl implements Initializable {
     public void add(){
         //Save the names, which is used to create the Name Model.
         _concatName = _concatName + _name.getText() + " ";
-        _listOfChosenNames.add(_name.getText());
-        ObservableList<String> data = FXCollections.observableArrayList(_listOfChosenNames);
         //Updates the list view of all the chosen names.
         _nameText.setText(_concatName);
     }

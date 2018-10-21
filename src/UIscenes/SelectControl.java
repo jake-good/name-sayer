@@ -45,8 +45,8 @@ public class SelectControl implements Initializable {
     @FXML private HBox slideInMenu;
     @FXML private Label _reports;
     @FXML private Label _add;
-
     private boolean _expanded;
+    @FXML private Label _addArrow;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,13 +59,23 @@ public class SelectControl implements Initializable {
                 new sceneChange("REPORT", 350, 300);
         });
         setUp();
+        //Tooltip for the Arrow image
+        _add.setTooltip(new Tooltip("Add to the list of names"));
     }
 
     public void Listen() {
-        if (!List) {
+        if (!List && !_concatName.equals("")) {
             //parse(_name.getText());
             new NameModel(_concatName, "output.wav");
             new sceneChange("LISTEN");
+        }else{
+            //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
+            //To fix the problem.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Empty Input Error");
+            alert.setHeaderText("ERROR! The input is empty");
+            alert.setContentText("Please either search a name through the \nsearch bar, or upload a list with names!");
+            alert.showAndWait();
         }
     }
 

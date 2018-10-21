@@ -11,18 +11,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.AssessControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.AssessControl">
    <children>
-      <ImageView fitHeight="83.0" fitWidth="79.0" layoutX="100.0" layoutY="180.0" onMouseClicked="#playAttempt">
-         <image>
-            <Image url="@../images/icons8-play-filled-500.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="79.0" layoutX="663.0" layoutY="180.0" onMouseClicked="#playDataBase">
-         <image>
-            <Image url="@../images/icons8-play-filled-500.png" />
-         </image>
-      </ImageView>
       <Label layoutX="104.0" layoutY="271.0" text="Your Attempt" textFill="WHITE" />
       <Label layoutX="678.0" layoutY="271.0" text="DataBase" textFill="WHITE" />
       <HBox alignment="CENTER" layoutX="298.0" layoutY="343.0">
@@ -92,5 +82,22 @@
             <Insets right="10.0" />
          </padding>
       </HBox>
+      <Label fx:id="_dateBaseAttempToolTip" layoutX="675.0" layoutY="188.0" onMouseClicked="#playDataBase" prefHeight="68.0" prefWidth="56.0">
+         <graphic>
+            <ImageView fitHeight="83.0" fitWidth="79.0" onMouseClicked="#playDataBase">
+               <image>
+                  <Image url="@../images/icons8-play-filled-500.png" />
+               </image>
+            </ImageView>
+         </graphic></Label>
+      <Label fx:id="_yourAttempToolTip" layoutX="122.0" layoutY="199.0" onMouseClicked="#playAttempt" prefHeight="68.0" prefWidth="56.0">
+         <graphic>
+            <ImageView fitHeight="83.0" fitWidth="79.0" onMouseClicked="#playAttempt">
+               <image>
+                  <Image url="@../images/icons8-play-filled-500.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
    </children>
 </AnchorPane>

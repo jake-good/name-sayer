@@ -43,13 +43,9 @@ public class RecordControl implements Initializable {
     // Viewing/deleting old recordings.
 
 
-    public void Compare() {
-        new sceneChange("ASSESS");
-    }
+    public void Compare() { new sceneChange("ASSESS"); }
 
-    public void Select() {
-        new sceneChange("SELECT");
-    }
+    public void Select() { new sceneChange("SELECT"); }
 
     public void Listen() {
         new sceneChange("LISTEN");

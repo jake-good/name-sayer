@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
@@ -20,10 +21,14 @@ public class AssessControl implements Initializable {
     @FXML private HBox slideInMenu;
     private boolean _expanded;
     public Label _nameLabel;
+    @FXML private Label _yourAttempToolTip;
+    @FXML private Label _dateBaseAttempToolTip;
 
     public void Return() {
         new sceneChange("RECORD");
     }
+
+    public void Select() { new sceneChange("SELECT"); }
 
     public void Listen() {
         new sceneChange("LISTEN");
@@ -57,5 +62,8 @@ public class AssessControl implements Initializable {
         _menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
         });
+
+        _yourAttempToolTip.setTooltip(new Tooltip("Play your attempt at saying the name"));
+        _dateBaseAttempToolTip.setTooltip(new Tooltip("Play the databases attempt at saying the name"));
     }
 }

@@ -4,13 +4,22 @@ package UIscenes;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.controlsfx.control.textfield.TextFields;
+import javafx.util.Duration;
 import sun.font.EAttribute;
 
 import java.io.*;
@@ -22,16 +31,32 @@ import java.util.ResourceBundle;
 public class SelectControl implements Initializable {
 
     public String _concatName = "";
-    public TextArea _selectedNameArea;
+    public List<String> _listOfChosenNames = new ArrayList<String>();
+    @FXML private Label _nameText;
     public Button _listenButton;
     public Label _uploadList;
     public TextField _name;
     private Boolean List;
     private List<String> _listName = new ArrayList<String>();
+    @FXML private ImageView _menu;
+    @FXML private HBox slideInMenu;
+    @FXML private Label _reports;
+    @FXML private Label _add;
 
-    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #8c6019;";
-    private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #a5721f;";
+    private boolean _expanded;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        List = false;
+        _expanded = false;
+        _menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+        _reports.setOnMouseClicked(event -> {
+                new sceneChange("REPORT", 350, 300);
+        });
+        setUp();
+    }
 
     public void Listen() {
         if (!List) {
@@ -57,16 +82,6 @@ public class SelectControl implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        List = false;
-        _listenButton.setOnMouseEntered(e -> _listenButton.setStyle(HOVERED_BUTTON_STYLE));
-        _listenButton.setOnMouseExited(e -> _listenButton.setStyle(IDLE_BUTTON_STYLE));
-        setUp();
-    }
-
-
-
     public void getList(String name) throws Exception {
         File namesList = new File("names.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
@@ -77,7 +92,6 @@ public class SelectControl implements Initializable {
             }
         }
         new sceneChange("LISTEN");
-
     }
 
     public void setUp(){
@@ -120,9 +134,15 @@ public class SelectControl implements Initializable {
     public void add(){
         //Save the names, which is used to create the Name Model.
         _concatName = _concatName + _name.getText() + " ";
-        this._selectedNameArea.setText(_concatName);
+        _listOfChosenNames.add(_name.getText());
+        ObservableList<String> data = FXCollections.observableArrayList(_listOfChosenNames);
+        //Updates the list view of all the chosen names.
+        _nameText.setText(_concatName);
+    }
 
-
+    public void clear() {
+        _concatName = "";
+        _nameText.setText(_concatName);
     }
 
 }

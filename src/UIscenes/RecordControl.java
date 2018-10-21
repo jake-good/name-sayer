@@ -1,12 +1,14 @@
 package UIscenes;
 
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -23,16 +25,16 @@ public class RecordControl implements Initializable {
     private String _activeRecording;
     public Label recLabel;
     public ImageView Mic;
+    @FXML
+    private ImageView _menu;
+    @FXML private HBox slideInMenu;
+    private boolean _expanded;
 
 
     public Button cr;
     public Button p;
     public Button d;
     public Button c;
-
-
-    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #8c6019;";
-    private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #a5721f;";
 
     // The Record scene will presumably have a name and a name file associated with it. In this class we need individual methods for the following:
     // Playing the original name
@@ -57,18 +59,9 @@ public class RecordControl implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         _currentName = NameModel._Names.get(NameModel._currentName);
         Name.setText(_currentName.getName());
-
-        cr.setOnMouseEntered(e -> cr.setStyle(HOVERED_BUTTON_STYLE));
-        cr.setOnMouseExited(e -> cr.setStyle(IDLE_BUTTON_STYLE));
-
-        p.setOnMouseEntered(e -> p.setStyle(HOVERED_BUTTON_STYLE));
-        p.setOnMouseExited(e -> p.setStyle(IDLE_BUTTON_STYLE));
-
-        d.setOnMouseEntered(e -> d.setStyle(HOVERED_BUTTON_STYLE));
-        d.setOnMouseExited(e -> d.setStyle(IDLE_BUTTON_STYLE));
-
-        c.setOnMouseEntered(e -> c.setStyle(HOVERED_BUTTON_STYLE));
-        c.setOnMouseExited(e -> c.setStyle(IDLE_BUTTON_STYLE));
+        _menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
     }
 
     public void Record() {

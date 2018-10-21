@@ -13,7 +13,7 @@ public class NameModel {
     public int _Attempts;
     public static List<NameModel> _Names;
     public static int _currentName;
-    private String _rating;
+    private boolean _reported;
 
     public NameModel(String Name, String FileName) {
         if (_Names == null) {
@@ -23,7 +23,6 @@ public class NameModel {
         _Name = Name;
         _FileName = FileName;
         _Attempts = 0;
-        _rating = "null";
         _Names.add(this);
     }
 
@@ -69,7 +68,7 @@ public class NameModel {
         return _FileName;
     }
 
-    public void Rate() {
-        _rating = "Rated";
+    public void report() {
+        _reported = true;
     }
 }

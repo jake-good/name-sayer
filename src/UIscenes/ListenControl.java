@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 
 import java.io.*;
@@ -15,13 +17,14 @@ import java.util.ResourceBundle;
 public class ListenControl implements Initializable {
 
     private NameModel _currentName;
-
+    @FXML private Label _expandList;
     public Label _nameLabel;
     @FXML
     private HBox slideInMenu;
     @FXML
     private ImageView menu;
-
+    @FXML private Pane _listViewPane;
+    private boolean _nameListExpanded;
     private boolean _expanded;
 
     public void Record() {
@@ -34,6 +37,9 @@ public class ListenControl implements Initializable {
         new concatWorker(_currentName._Name).execute();
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+        });
+        _expandList.setOnMouseClicked(event -> {
+            listTransition();
         });
     }
 
@@ -74,6 +80,21 @@ public class ListenControl implements Initializable {
             output.close();
         } catch (IOException e) {
             System.out.println("Error loading complaint log");
+        }
+    }
+
+    public void listTransition() {
+        TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _listViewPane);
+        slideIn.setFromY(-232);
+        slideIn.setToY(0);
+
+        if (!_nameListExpanded) {
+            slideIn.setRate(1);
+            slideIn.play();
+            _nameListExpanded=true;
+        } else {
+            slideIn.setRate(-1);
+            slideIn.play();
         }
     }
 }

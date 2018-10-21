@@ -29,6 +29,11 @@ public class AssessControl implements Initializable {
         new sceneChange("LISTEN");
     }
 
+    public void Select() {
+        new sceneChange("SELECT");
+    }
+
+
 
     public void playAttempt(){
         new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/"+ _currentName._recName + ".wav'").execute();
@@ -37,7 +42,6 @@ public class AssessControl implements Initializable {
     public void playDataBase(){
         new playWorker("output.wav").execute();
     }
-
 
 
     public void compare(){

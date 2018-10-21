@@ -15,12 +15,12 @@ public class SlideMenu {
 
     public boolean SlideMenuMake() {
         TranslateTransition slideIn = new TranslateTransition(Duration.millis(500), _slideInMenu);
-        slideIn.setFromX(-350);
-        slideIn.setToX(75);
+        slideIn.setFromY(-47);
+        slideIn.setToY(0);
 
         TranslateTransition slideOut = new TranslateTransition(Duration.millis(500), _slideInMenu);
-        slideOut.setFromX(75);
-        slideOut.setToX(-350);
+        slideOut.setFromY(0);
+        slideOut.setToY(-47);
 
         if (!_expanded) {
             slideIn.setRate(1);

@@ -48,7 +48,7 @@
       <Label layoutX="728.0" layoutY="462.0" text="Next Name" textFill="#a7a7a7" />
       <Label layoutX="400.0" layoutY="301.0" text="Volume" textFill="#a8a8a8" />
       <Label layoutX="376.0" layoutY="470.0" onMouseClicked="#Rate" text="Report this name" textFill="#fcfcfc" underline="true" />
-      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutY="-1.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" spacing="20.0" style="-fx-background-color: #394a66;" translateX="-363.0">
+      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" spacing="20.0" style="-fx-background-color: #394a66;" translateY="-47.0">
          <children>
             <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
                <padding>

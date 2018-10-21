@@ -5,10 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -24,8 +22,7 @@ import java.util.ResourceBundle;
 public class SelectControl implements Initializable {
 
     public String _concatName = "";
-    public List<String> _listOfChosenNames = new ArrayList<String>();
-    public ListView<String> _chosenNames;
+    public TextArea _selectedNameArea;
     public Button _listenButton;
     public Label _uploadList;
     public TextField _name;
@@ -123,10 +120,9 @@ public class SelectControl implements Initializable {
     public void add(){
         //Save the names, which is used to create the Name Model.
         _concatName = _concatName + _name.getText() + " ";
-        _listOfChosenNames.add(_name.getText());
-        ObservableList<String> data = FXCollections.observableArrayList(_listOfChosenNames);
-        //Updates the list view of all the chosen names.
-        _chosenNames.setItems(data);
+        this._selectedNameArea.setText(_concatName);
+
+
     }
 
 }

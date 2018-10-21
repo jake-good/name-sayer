@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -34,6 +34,6 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <ListView fx:id="_chosenNames" layoutX="535.0" layoutY="204.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #617596;" />
+      <TextArea fx:id="_selectedNameArea" layoutX="486.0" layoutY="201.0" prefHeight="42.0" prefWidth="338.0" style="-fx-background-color: #617596; -fx-background-radius: 0px;" />
    </children>
 </AnchorPane>

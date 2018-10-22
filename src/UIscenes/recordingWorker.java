@@ -10,12 +10,10 @@ import java.io.File;
 public class recordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
-    private String _recName;
     private ImageView _Mic;
 
-    public recordingWorker(String currentName, String recName, ImageView Mic){
+    public recordingWorker(String currentName, ImageView Mic){
         _currentName = currentName;
-        _recName = recName;
         _Mic = Mic;
     }
 
@@ -24,7 +22,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
 
         //Records the attempt at saying the name.
         String cmd = "ffmpeg -f alsa -i default  -t 3 'DataBase-VoNZ-word/" + _currentName +
-                "/" + _recName + ".wav'";
+                "/attempt.wav'";
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{

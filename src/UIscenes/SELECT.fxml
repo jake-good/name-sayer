@@ -53,7 +53,7 @@
          </image>
       </ImageView>
       <Label fx:id="_reports" layoutX="676.0" layoutY="453.0" text="View Reported Names" textFill="WHITE" underline="true" />
-      <Label fx:id="_nameText" layoutX="583.0" layoutY="236.0" textFill="WHITE">
+      <Label fx:id="_nameText" layoutX="544.0" layoutY="238.0" maxHeight="65.0" maxWidth="295.0" text="Name" textFill="WHITE" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>

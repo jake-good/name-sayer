@@ -34,12 +34,12 @@
          </image>
       </ImageView>
       <Button contentDisplay="RIGHT" layoutX="75.0" layoutY="268.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" stylesheets="@css/style.css" text="RECORD AN ATTEMPT" />
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="401.0" onMouseClicked="#next">
+      <ImageView fx:id="_nextArrow" fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="401.0" onMouseClicked="#next">
          <image>
             <Image url="@../images/icons8-arrow-filled-100.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="54.0" layoutY="401.0" onMouseClicked="#previous" rotate="180.0">
+      <ImageView fx:id="_prevArrow" fitHeight="60.0" fitWidth="60.0" layoutX="54.0" layoutY="401.0" onMouseClicked="#previous" rotate="180.0">
          <image>
             <Image url="@../images/icons8-arrow-filled-100.png" />
          </image>
@@ -76,9 +76,9 @@
       </ImageView>
       <Pane fx:id="_listViewPane" layoutX="331.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" translateY="250.0" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="250.0">
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="_namesList" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #394a66;" styleClass="namelist" stylesheets="@css/style.css" />
          </children>
       </Pane>
-      <Label fx:id="_expandList" layoutX="406.0" layoutY="478.0" text="Expand" />
+      <Label fx:id="_expandList" layoutX="365.0" layoutY="478.0" text="View Names in list" textFill="#fffdfd" underline="true" />
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,7 +24,14 @@ public class ListenControl implements Initializable {
     private HBox slideInMenu;
     @FXML
     private ImageView menu;
+    @FXML
+    private ImageView _nextArrow;
+    @FXML
+    private ImageView _prevArrow;
+
     @FXML private Pane _listViewPane;
+    @FXML private ListView<String> _namesList;
+
     private boolean _nameListExpanded;
     private boolean _expanded;
 
@@ -41,6 +49,16 @@ public class ListenControl implements Initializable {
         _expandList.setOnMouseClicked(event -> {
             listTransition();
         });
+
+        if (NameModel._Names.size() > 1) {
+            for (NameModel name : NameModel._Names) {
+                _namesList.getItems().add(name._Name);
+            }
+            _prevArrow.setVisible(false);
+        } else {
+            _nextArrow.setVisible(false);
+            _prevArrow.setVisible(false);
+        }
     }
 
     public void Select() {
@@ -55,15 +73,25 @@ public class ListenControl implements Initializable {
     }
 
     public void next() {
-        NameModel.next();
+        boolean hasNext = NameModel.next();
         setName();
         new concatWorker(_currentName._Name).execute();
+        if (!hasNext) {
+            _nextArrow.setVisible(false);
+        } else {
+            _nextArrow.setVisible(true);
+        } _prevArrow.setVisible(true);
     }
 
     public void previous() {
-        NameModel.prev();
+        boolean hasPrev = NameModel.prev();
         setName();
         new concatWorker(_currentName._Name).execute();
+        if (!hasPrev) {
+            _prevArrow.setVisible(false);
+        } else {
+            _prevArrow.setVisible(true);
+        } _nextArrow.setVisible(true);
     }
 
     public void play() {

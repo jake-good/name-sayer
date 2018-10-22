@@ -24,16 +24,27 @@ public class NameModel {
         _Names.add(this);
     }
 
-    public static void next() {
+    public static boolean next() {
         if (_currentName < NameModel._Names.size() - 1) {
             _currentName++;
-        }
+            if (_currentName < NameModel._Names.size() - 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } return false;
     }
 
-    public static void prev() {
+    public static boolean prev() {
         if (_currentName > 0) {
             _currentName--;
+            if (_currentName > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
 
     public String getName() {

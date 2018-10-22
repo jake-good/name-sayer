@@ -15,10 +15,20 @@
     -fx-text-fill: white;
 }
 
+.namelist: odd{
+    -fx-background-color: #394a66;
+}
+
 .list-cell:odd {
     -fx-background-color:   #8c6019;
 }
 
 .list-cell:even {
     -fx-background-color:   #a5721f;
+}
+
+
+
+.namelist: even{
+    -fx-background-color: #617596;
 }

@@ -1,6 +1,8 @@
 package UIscenes;
 
 
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXRippler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -45,6 +48,8 @@ public class SelectControl implements Initializable {
     @FXML private HBox slideInMenu;
     @FXML private Label _reports;
     @FXML private Label _addToolTip;
+    @FXML private StackPane _parent;
+
     private boolean _expanded;
 
     @Override
@@ -196,10 +201,15 @@ public class SelectControl implements Initializable {
      * @param contentText
      */
     public void errorPopUp(String title, String headerText, String contentText){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(headerText);
-        alert.setContentText(contentText);
-        alert.showAndWait();
+        JFXDialog dialog = new JFXDialog();
+        dialog.setDialogContainer(_parent);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        layout.setBody(new Label(contentText));
+        layout.setHeading(new Label(headerText));
+        dialog.setContent(layout);
+        dialog.show();
+
+
+
     }
 }

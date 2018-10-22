@@ -1,5 +1,6 @@
 package UIscenes;
 
+import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXProgressBar;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -34,7 +35,7 @@ public class ListenControl implements Initializable {
     private ImageView _prevArrow;
 
     @FXML private Pane _listViewPane;
-    @FXML private ListView<String> _namesList;
+    @FXML private JFXListView<String> _namesList;
     @FXML private JFXProgressBar _audioProgress;
 
     private boolean _nameListExpanded;

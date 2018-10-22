@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
@@ -9,62 +11,74 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.SelectControl">
+
+<StackPane fx:id="_parent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.SelectControl">
    <children>
-      <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" spacing="40.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="47.0" prefHeight="62.0" prefWidth="357.0" style="-fx-text-fill: #000000;" text="NameSayer">
-         <font>
-            <Font size="57.0" />
-         </font>
-      </Label>
-      <Label fx:id="_uploadList" layoutX="354.0" layoutY="451.0" onMouseClicked="#uploadFile" text="Upload a list instead" textFill="WHITE" underline="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="_listenButton" layoutX="388.0" layoutY="380.0" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="LISTEN" />
-      <HBox fx:id="slideInMenu" alignment="CENTER" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" style="-fx-background-color: #394a66;" translateY="-47.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;">
          <children>
-            <Label fx:id="_homeLabel" graphicTextGap="0.0" style="-fx-background-color: #617596;" stylesheets="@css/style.css" text="HOME" wrapText="true">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <styleClass>
-                  <String fx:value="menuLabel" />
-                  <String fx:value="text" />
-               </styleClass>
+            <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" spacing="40.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="47.0" prefHeight="62.0" prefWidth="357.0" style="-fx-text-fill: #000000;" text="NameSayer">
+               <font>
+                  <Font size="57.0" />
+               </font>
             </Label>
-         </children>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </HBox>
-      <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/menu.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="_reports" layoutX="676.0" layoutY="453.0" text="View Reported Names" textFill="WHITE" underline="true" />
-      <Label fx:id="_nameText" layoutX="551.0" layoutY="227.0" maxHeight="65.0" maxWidth="295.0" textFill="WHITE" wrapText="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="_listenButton1" layoutX="638.0" layoutY="309.0" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="CLEAR" />
-      <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font></JFXTextField>
-      <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0">
-         <graphic>
-            <ImageView fitHeight="86.0" fitWidth="107.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="_uploadList" layoutX="354.0" layoutY="451.0" onMouseClicked="#uploadFile" text="Upload a list instead" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="_listenButton" layoutX="388.0" layoutY="380.0" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="LISTEN" />
+            <HBox fx:id="slideInMenu" alignment="CENTER" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" style="-fx-background-color: #394a66;" translateY="-47.0">
+               <children>
+                  <Label fx:id="_homeLabel" graphicTextGap="0.0" style="-fx-background-color: #617596;" stylesheets="@css/style.css" text="HOME" wrapText="true">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-arrow-filled-100.png" />
+                  <Image url="@../images/menu.png" />
                </image>
             </ImageView>
-         </graphic>
-      </Label>
+            <Label fx:id="_reports" layoutX="676.0" layoutY="453.0" text="View Reported Names" textFill="WHITE" underline="true" />
+            <Label fx:id="_nameText" layoutX="551.0" layoutY="227.0" maxHeight="65.0" maxWidth="295.0" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="_listenButton1" layoutX="638.0" layoutY="309.0" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="CLEAR" />
+            <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0">
+               <graphic>
+                  <ImageView fitHeight="86.0" fitWidth="107.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-arrow-filled-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <JFXDialog prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <JFXDialogLayout prefHeight="200.0" prefWidth="100.0" />
+               </children>
+            </JFXDialog>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

@@ -73,11 +73,8 @@ public class SelectControl implements Initializable {
         }else{
             //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
             //To fix the problem.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Empty Input Error");
-            alert.setHeaderText("ERROR! The input is empty");
-            alert.setContentText("Please either search a name through the \nsearch bar, or upload a list with names!");
-            alert.showAndWait();
+            errorPopUp("Empty Input Error","ERROR! The input is empty",
+                    "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
     }
 
@@ -103,12 +100,33 @@ public class SelectControl implements Initializable {
             String line;
             while ((line = br.readLine()) != null) {
                 //parse(line);
-                new NameModel(line, "output.wav");
+
+                //This checks if all the names are valid, if not, an error dialogue pops up informing the user that
+                //There is an error.
+                String [] individualWords = line.split(" ");
+                int completion = 0;
+                for(int i =0; i<individualWords.length;i++) {
+                    if (_listName.contains(individualWords[i])) {
+                        completion++;
+                    }else {
+                        errorPopUp("Invalid Input Error", "ERROR! The input is invalid",
+                                "Please double check that all the names are \ncorrect and are in the database!");
+                        return;
+                    }
+                }
+                if(completion==individualWords.length){
+                    new NameModel(line, "output.wav");
+                    completion = 0;
+                }
             }
         }
         new sceneChange("LISTEN");
     }
 
+    /**
+     * This sets up the necessary variables needed within this class, such as a parsed list of names in the database and
+     * setting up the autocomplete function in the search bar.
+     */
     public void setUp(){
         //Lists all the names of the files in the names database but removing the .wav extension
         ProcessBuilder listBuilder = new ProcessBuilder("/bin/bash", "-c", "ls DataBase-VoNZ-word -1 | sed 's/.*_//' | sed -n 's/\\.wav$//p'");
@@ -153,11 +171,8 @@ public class SelectControl implements Initializable {
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
         }else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong Input Error");
-            alert.setHeaderText("ERROR! This name does not exist");
-            alert.setContentText("Please either search a name through the \nsearch bar, or upload a list with names!");
-            alert.showAndWait();
+            errorPopUp("Wrong Input Error","ERROR! This name does not exist",
+                    "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
         _name.clear();
     }
@@ -167,7 +182,25 @@ public class SelectControl implements Initializable {
         _nameText.setText(_concatName);
     }
 
+    /**
+     * Executes a bash file which helps normalise the audio files within the database, only if it hasn't been done before.
+     */
     public void normalise(){
         new NormaliseWorker().execute();
+    }
+
+    /**
+     * Creates an error pop up dialogue which alerts the user that there is an error, and depending on the arguments
+     * it should help the user identify what went wrong and how to correct it.
+     * @param title
+     * @param headerText
+     * @param contentText
+     */
+    public void errorPopUp(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 }

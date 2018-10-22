@@ -73,13 +73,17 @@ public class SelectControl implements Initializable {
         if (!List && !_concatName.equals("")) {
             //parse(_name.getText());
             new NameModel(_concatName, "output.wav");
-            new sceneChange("LISTEN");
+            new sceneChange("LISTEN", "SELECT");
         }else{
             //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
             //To fix the problem.
             errorPopUp("Empty Input Error","ERROR! The input is empty",
                     "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
+    }
+
+    public void extra() {
+        new sceneChange("EXTRA", "SELECT");
     }
 
     public void uploadFile() {
@@ -124,7 +128,7 @@ public class SelectControl implements Initializable {
                 }
             }
         }
-        new sceneChange("LISTEN");
+        new sceneChange("LISTEN", "SELECT");
     }
 
     /**

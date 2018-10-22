@@ -49,14 +49,14 @@ public class RecordControl implements Initializable {
         if (!_playButton.isVisible()) {
             warning();
         } else {
-            new sceneChange("ASSESS");
+            new sceneChange("ASSESS", "RECORD");
         }
     }
 
-    public void Select() { new sceneChange("SELECT"); }
+    public void Select() { new sceneChange("SELECT", "RECORD"); }
 
     public void Listen() {
-        new sceneChange("LISTEN");
+        new sceneChange("LISTEN", "RECORD");
     }
 
     @Override

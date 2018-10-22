@@ -25,13 +25,13 @@ public class AssessControl implements Initializable {
     @FXML private Label _dateBaseAttempToolTip;
 
     public void Return() {
-        new sceneChange("RECORD");
+        new sceneChange("RECORD", "ASSES");
     }
 
-    public void Select() { new sceneChange("SELECT"); }
+    public void Select() { new sceneChange("SELECT", "ASSES"); }
 
     public void Listen() {
-        new sceneChange("LISTEN");
+        new sceneChange("LISTEN", "ASSES");
     }
 
 

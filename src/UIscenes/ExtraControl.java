@@ -26,11 +26,13 @@ public class ExtraControl implements Initializable {
     @FXML private Tab _mic;
     @FXML private Tab _prog;
 
+    private MicrophoneLevel _micLine;
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new MicrophoneLevel(_micBar);
+        _micLine = new MicrophoneLevel(_micBar);
         getReports();
         getAttempts();
     }
@@ -55,6 +57,7 @@ public class ExtraControl implements Initializable {
 
     public void back() {
         new sceneChange(Main.getPreviousScene(), Main.getPreviousScene());
+        _micLine.closeLine();
     }
 
 

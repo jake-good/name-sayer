@@ -11,12 +11,11 @@ public class MicrophoneLevel {
 
     private JFXProgressBar _progBar;
     private Thread _dataLine;
+    private boolean _started;
 
     public MicrophoneLevel(JFXProgressBar progBar) {
         _progBar = progBar;
-        if (!_dataLine.isAlive()) {
-            getLineData();
-        }
+        getLineData();
     }
     /**
      * This Method to get a dataline for the mic level was found at: "http://proteo.me.uk/2009/10/sound-level-monitoring-in-java/"

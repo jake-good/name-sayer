@@ -44,7 +44,7 @@ public class ListenControl implements Initializable {
     private Timeline _playTime;
 
     public void Record() {
-        new sceneChange("RECORD");
+        new sceneChange("RECORD", "LISTEN");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class ListenControl implements Initializable {
     }
 
     public void Select() {
-        new sceneChange("SELECT");
+        new sceneChange("SELECT", "LISTEN");
         NameModel._Names.clear();
         NameModel._currentName = 0;
     }

@@ -1,10 +1,14 @@
 package UIscenes;
 
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.net.URL;
@@ -26,8 +31,10 @@ public class RecordControl implements Initializable {
     @FXML
     private ImageView _menu;
     @FXML private HBox slideInMenu;
+    @FXML private ProgressBar _recordingProgress;
     private boolean _expanded;
     private recordingWorker _recWorker;
+    private Timeline _recTime;
 
 
 
@@ -57,12 +64,19 @@ public class RecordControl implements Initializable {
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
         _recWorker = new recordingWorker(_currentName.getName(), Mic);
         _recWorker.execute();
+         _recTime = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(_recordingProgress.progressProperty(), 0)),
+                new KeyFrame(Duration.seconds(10), new KeyValue(_recordingProgress.progressProperty(), 1))
+        );
+        _recTime.setCycleCount(1);
+        _recTime.play();
     }
 
     public void stopRecording() {
         if (_recWorker.recProcess.isAlive()) {
             _recWorker.recProcess.destroy();
         }
+        _recTime.stop();
     }
 
     public void Discard() {

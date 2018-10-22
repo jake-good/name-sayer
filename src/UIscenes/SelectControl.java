@@ -39,6 +39,7 @@ public class SelectControl implements Initializable {
     public Button _listenButton;
     public Label _uploadList;
     public TextField _name;
+    public TextField _name1;
     private Boolean List;
     private List<String> _listName = new ArrayList<String>();
     @FXML private ImageView _menu;
@@ -161,20 +162,20 @@ public class SelectControl implements Initializable {
 
         //Uses the 3rd party ControlsFX which is an open source project for JavaFX. This allows the textfield
         //To have an autocomplete function, more information at http://fxexperience.com/controlsfx/
-        TextFields.bindAutoCompletion(_name,_listName);
+        TextFields.bindAutoCompletion(_name1,_listName);
     }
 
     public void add(){
-        if((_listName.contains(_name.getText()))) {
+        if((_listName.contains(_name1.getText()))) {
             //Save the names, which is used to create the Name Model.
-            _concatName = _concatName + _name.getText() + " ";
+            _concatName = _concatName + _name1.getText() + " ";
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
         }else{
             errorPopUp("Wrong Input Error","ERROR! This name does not exist",
                     "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
-        _name.clear();
+        _name1.clear();
     }
 
     public void clear() {

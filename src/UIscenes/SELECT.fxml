@@ -52,16 +52,19 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="_add" layoutX="432.0" layoutY="218.0" onMouseClicked="#add" />
       <Button fx:id="_listenButton1" layoutX="638.0" layoutY="309.0" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #a5721f;" text="CLEAR" />
-      <ImageView fitHeight="86.0" fitWidth="107.0" layoutX="421.0" layoutY="208.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/icons8-arrow-filled-100.png" />
-         </image>
-      </ImageView>
       <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
+      <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0">
+         <graphic>
+            <ImageView fitHeight="86.0" fitWidth="107.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-arrow-filled-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
    </children>
 </AnchorPane>

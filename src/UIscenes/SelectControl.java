@@ -59,6 +59,8 @@ public class SelectControl implements Initializable {
                 new sceneChange("REPORT", 350, 300);
         });
         setUp();
+        //Normalise the audio, only when it's the first time it is booted up.
+        normalise();
         //Tooltip for the Arrow image
         _add.setTooltip(new Tooltip("Add to the list of names"));
     }
@@ -165,4 +167,7 @@ public class SelectControl implements Initializable {
         _nameText.setText(_concatName);
     }
 
+    public void normalise(){
+        new NormaliseWorker().execute();
+    }
 }

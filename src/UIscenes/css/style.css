@@ -48,6 +48,19 @@
     -fx-background-color: #394a66;
 }
 
+/** TabPane **/
+
+.tab {
+    -fx-background-color: #394a66;
+    -fx-pref-width: 150;
+    -fx-pref-height: 60;
+}
+
+.tab-header-background{
+    -fx-background-color: #394a66;
+}
+
+
 
 
 

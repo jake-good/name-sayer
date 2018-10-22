@@ -1,5 +1,9 @@
 package UIscenes;
 
+import com.jfoenix.controls.JFXProgressBar;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,9 +35,12 @@ public class ListenControl implements Initializable {
 
     @FXML private Pane _listViewPane;
     @FXML private ListView<String> _namesList;
+    @FXML private JFXProgressBar _audioProgress;
 
     private boolean _nameListExpanded;
     private boolean _expanded;
+
+    private Timeline _playTime;
 
     public void Record() {
         new sceneChange("RECORD");
@@ -97,6 +104,7 @@ public class ListenControl implements Initializable {
     public void play() {
         // Play the current name via the filename
         new playWorker(_currentName.getFileName()).execute();
+        playProgress(getWavLength());
     }
 
     public void Rate() {
@@ -126,4 +134,39 @@ public class ListenControl implements Initializable {
             _nameListExpanded=false;
         }
     }
+
+    public double getWavLength() {
+        String cmd = "ffprobe -v quiet -print_format compact=print_section=0:nokey=1:escape=csv -show_entries format=duration output.wav";
+        ProcessBuilder builder = new ProcessBuilder("bash", "-c",
+                cmd);
+        double duration = 0;
+        try{
+            Process listProcess = builder.start();
+
+            InputStream stdout = listProcess.getInputStream();
+
+            BufferedReader stdoutBuffered = new BufferedReader(new InputStreamReader(stdout));
+            String line = null;
+            int i = 1;
+            while((line = stdoutBuffered.readLine())!= null){
+                System.out.println(line);
+                duration = Double.parseDouble(line);
+            }
+        }catch (Exception e){
+            System.out.println("failed to play file");
+        }
+        System.out.println(duration);
+        return duration;
+    }
+
+    public void playProgress(double duration) {
+        // Create a progress bar indicating the duration of recording.
+        _playTime = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(_audioProgress.progressProperty(), 0)),
+                new KeyFrame(Duration.seconds(duration), new KeyValue(_audioProgress.progressProperty(), 1))
+        );
+        _playTime.setCycleCount(1);
+        _playTime.play();
+    }
+
 }

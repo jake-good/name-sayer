@@ -1,6 +1,9 @@
 package UIscenes;
 
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class playWorker extends SwingWorker<Void,Void> {
 
@@ -15,7 +18,6 @@ public class playWorker extends SwingWorker<Void,Void> {
     @Override
     public Void doInBackground(){
         String cmd = "ffplay -nodisp " + _fileName + " -autoexit";
-        System.out.println(cmd);
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{

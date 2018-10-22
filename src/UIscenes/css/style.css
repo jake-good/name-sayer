@@ -23,11 +23,20 @@
     -fx-background-color:   #a5721f;
 }
 
-.jfx-progress-bar > .track, .jfx-progress-bar > .bar{
-    -fx-background-radius: 0;
-    -fx-background-insets: 0;
+.jfx-progress-bar .bar {
+    -fx-background-color: red;
 }
 
-.jfx-progress-bar .bar {
-    -fx-accent: red;
+#play .bar {
+    -fx-background-COLOR: orange;
 }
+
+#play .track {
+    -fx-background-color: #394a66;
+}
+
+
+
+
+
+

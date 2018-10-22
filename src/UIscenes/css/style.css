@@ -16,7 +16,7 @@
 }
 
 .jfx-progress-bar .bar {
-    -fx-background-color: red;
+    -fx-background-color: orange;
 }
 
 #play .bar {

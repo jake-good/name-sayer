@@ -1,6 +1,8 @@
 package UIscenes;
 
 
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -13,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -31,6 +34,10 @@ public class RecordControl implements Initializable {
     @FXML
     private ImageView _menu;
     @FXML private HBox slideInMenu;
+    @FXML private Button _playButton;
+    @FXML private Button _discardButton;
+    @FXML private StackPane _parent;
+
     @FXML private ProgressBar _recordingProgress;
     private boolean _expanded;
     private recordingWorker _recWorker;
@@ -38,7 +45,13 @@ public class RecordControl implements Initializable {
 
 
 
-    public void Compare() { new sceneChange("ASSESS"); }
+    public void Compare() {
+        if (!_playButton.isVisible()) {
+            warning();
+        } else {
+            new sceneChange("ASSESS");
+        }
+    }
 
     public void Select() { new sceneChange("SELECT"); }
 
@@ -72,6 +85,10 @@ public class RecordControl implements Initializable {
         );
         _recTime.setCycleCount(1);
         _recTime.play();
+
+
+        _playButton.setVisible(true);
+        _discardButton.setVisible(true);
     }
 
     public void stopRecording() {
@@ -79,15 +96,26 @@ public class RecordControl implements Initializable {
             _recWorker.recProcess.destroy();
         }
         _recTime.stop();
-        _recordingProgress.setProgress(0);
     }
 
     public void Discard() {
         new File("DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav").delete();
+        _playButton.setVisible(false);
+        _discardButton.setVisible(false);
     }
 
     public void Play() {
         new playWorker("'DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav'").execute();
+    }
+
+    public void warning() {
+        JFXDialog dialog = new JFXDialog();
+        dialog.setDialogContainer(_parent);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        layout.setBody(new Label("You cannot compare your attempt if you have not yet recorded one!"));
+        layout.setHeading(new Label("ERROR! No recording attempt"));
+        dialog.setContent(layout);
+        dialog.show();
     }
 
 }

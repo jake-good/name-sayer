@@ -12,6 +12,7 @@ public class concatWorker extends SwingWorker<Void,Void> {
 
     private List<String> _files = new ArrayList<String>();
     private String _input;
+    private String _cmd = "";
 
     public concatWorker(String input){
         _input = input;
@@ -22,9 +23,15 @@ public class concatWorker extends SwingWorker<Void,Void> {
         String[] names  = _input.split(" |-");
         List<String> files = new ArrayList<String>();
         for (String name : names) {
-            String cmd = "ls DataBase-VoNZ-word/*" + name + ".wav";
-            System.out.println(cmd);
-            ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", cmd);
+            //Deals with when a name is a duplicate
+            if(name.contains("(")){
+                _cmd = "ls DataBase-VoNZ-word/*" + name.substring(0,name.length()-3) + ".wav | sed -n '" +
+                        Integer.toString(Character.getNumericValue(name.charAt(name.length()-2))+1) + "{p;q}'";
+            }else {
+                _cmd = "ls DataBase-VoNZ-word/*" + name + ".wav | sed -n '1{p;q}'";
+            }
+            System.out.println(_cmd);
+            ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", _cmd);
             try {
                 Process process = builder.start();
                 InputStream stdout = process.getInputStream();

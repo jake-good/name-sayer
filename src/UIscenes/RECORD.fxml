@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
       <HBox layoutX="168.0" layoutY="282.0" />
@@ -76,7 +76,7 @@
          </image>
       </ImageView>
       <Button fx:id="cr" layoutX="348.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="CREATE RECORDING" />
-      <Button fx:id="d1" layoutX="491.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
-      <ProgressBar layoutX="331.0" layoutY="219.0" prefWidth="200.0" progress="0.0" style="-fx-progress-color: #;" />
+      <Button fx:id="d1" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
+      <ProgressBar fx:id="_recordingProgress" layoutX="331.0" layoutY="219.0" prefWidth="200.0" progress="0.0" style="-fx-progress-color: #;" />
    </children>
 </AnchorPane>

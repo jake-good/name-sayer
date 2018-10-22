@@ -15,10 +15,6 @@
     -fx-text-fill: white;
 }
 
-.namelist: odd{
-    -fx-background-color: #394a66;
-}
-
 .list-cell:odd {
     -fx-background-color:   #8c6019;
 }
@@ -27,16 +23,11 @@
     -fx-background-color:   #a5721f;
 }
 
-.namelist: even{
-    -fx-background-color: #617596;
-}
-
-.progress-bar {
-    -fx-accent: #a5721f;
-}
-
-.progress-bar > .track {
-    -fx-control-inner-background: #617596;
-    -fx-background-radius: 0px;
+.jfx-progress-bar > .track, .jfx-progress-bar > .bar{
+    -fx-background-radius: 0;
     -fx-background-insets: 0;
+}
+
+.jfx-progress-bar .bar {
+    -fx-accent: red;
 }

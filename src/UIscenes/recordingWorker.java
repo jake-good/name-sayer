@@ -20,7 +20,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
 
     @Override
     public Void doInBackground(){
-
+        new File("DataBase-VoNZ-word/"+ _currentName + "/attempt.wav").delete();
         //Records the attempt at saying the name.
         String cmd = "ffmpeg -f alsa -i default  -t 10 'DataBase-VoNZ-word/" + _currentName +
                 "/attempt.wav'";

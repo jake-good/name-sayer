@@ -76,7 +76,7 @@
       </ImageView>
       <Pane fx:id="_listViewPane" layoutX="331.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" translateY="250.0" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="250.0">
          <children>
-            <ListView fx:id="_namesList" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #394a66;" styleClass="namelist" stylesheets="@css/style.css" />
+            <ListView fx:id="_namesList" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css" />
          </children>
       </Pane>
       <Label fx:id="_expandList" layoutX="365.0" layoutY="478.0" text="View Names in list" textFill="#fffdfd" underline="true" />

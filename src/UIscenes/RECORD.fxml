@@ -18,7 +18,6 @@
       <HBox layoutX="168.0" layoutY="282.0" />
       <Button fx:id="c" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" text="COMPARE" />
       <Button fx:id="p" layoutX="329.0" layoutY="340.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" text="PLAY" />
-      <Label layoutX="746.0" layoutY="21.0" onMouseClicked="#Listen" text="Return to listen" textFill="#a5721f" underline="true" />
       <HBox layoutX="309.0" layoutY="106.0" spacing="40.0">
          <children>
             <Label text="Name:" textFill="WHITE">

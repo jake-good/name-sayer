@@ -33,8 +33,6 @@ import java.util.ResourceBundle;
 public class SelectControl implements Initializable {
 
     public String _concatName = "";
-    public TextArea _selectedNameArea;
-    public List<String> _listOfChosenNames = new ArrayList<String>();
     @FXML private Label _nameText;
     public Button _listenButton;
     public Label _uploadList;
@@ -45,9 +43,8 @@ public class SelectControl implements Initializable {
     @FXML private ImageView _menu;
     @FXML private HBox slideInMenu;
     @FXML private Label _reports;
-    @FXML private Label _add;
+    @FXML private Label _addToolTip;
     private boolean _expanded;
-    @FXML private Label _addArrow;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +60,7 @@ public class SelectControl implements Initializable {
         //Normalise the audio, only when it's the first time it is booted up.
         normalise();
         //Tooltip for the Arrow image
-        _add.setTooltip(new Tooltip("Add to the list of names"));
+        _addToolTip.setTooltip(new Tooltip("Add to the list of names"));
     }
 
     public void Listen() {

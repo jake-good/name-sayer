@@ -77,6 +77,6 @@
       </ImageView>
       <Button fx:id="cr" layoutX="348.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="CREATE RECORDING" />
       <Button fx:id="d1" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
-      <ProgressBar fx:id="_recordingProgress" layoutX="331.0" layoutY="219.0" prefWidth="200.0" progress="0.0" style="-fx-progress-color: #;" />
+      <ProgressBar fx:id="_recordingProgress" layoutX="331.0" layoutY="219.0" prefWidth="200.0" progress="0.0" stylesheets="@css/style.css" />
    </children>
 </AnchorPane>

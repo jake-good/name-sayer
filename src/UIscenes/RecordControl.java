@@ -64,6 +64,8 @@ public class RecordControl implements Initializable {
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
         _recWorker = new recordingWorker(_currentName.getName(), Mic);
         _recWorker.execute();
+
+        // Create a 10sec progress bar indicating the duration of recording.
          _recTime = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(_recordingProgress.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(10), new KeyValue(_recordingProgress.progressProperty(), 1))
@@ -77,6 +79,7 @@ public class RecordControl implements Initializable {
             _recWorker.recProcess.destroy();
         }
         _recTime.stop();
+        _recordingProgress.setProgress(0);
     }
 
     public void Discard() {

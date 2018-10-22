@@ -27,8 +27,16 @@
     -fx-background-color:   #a5721f;
 }
 
-
-
 .namelist: even{
     -fx-background-color: #617596;
+}
+
+.progress-bar {
+    -fx-accent: #a5721f;
+}
+
+.progress-bar > .track {
+    -fx-control-inner-background: #617596;
+    -fx-background-radius: 0px;
+    -fx-background-insets: 0;
 }

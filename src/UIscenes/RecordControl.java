@@ -27,6 +27,7 @@ public class RecordControl implements Initializable {
     private ImageView _menu;
     @FXML private HBox slideInMenu;
     private boolean _expanded;
+    private recordingWorker _recWorker;
 
 
 
@@ -54,7 +55,14 @@ public class RecordControl implements Initializable {
 
         new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
-        new recordingWorker(_currentName.getName(), Mic).execute();
+        _recWorker = new recordingWorker(_currentName.getName(), Mic);
+        _recWorker.execute();
+    }
+
+    public void stopRecording() {
+        if (_recWorker.recProcess.isAlive()) {
+            _recWorker.recProcess.destroy();
+        }
     }
 
     public void Discard() {

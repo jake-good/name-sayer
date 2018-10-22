@@ -75,5 +75,6 @@
          </image>
       </ImageView>
       <Button fx:id="cr" layoutX="354.0" layoutY="274.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="CREATE RECORDING" />
+      <Button fx:id="d1" layoutX="549.0" layoutY="274.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
    </children>
 </AnchorPane>

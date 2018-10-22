@@ -11,6 +11,7 @@ public class recordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
     private ImageView _Mic;
+    Process recProcess;
 
     public recordingWorker(String currentName, ImageView Mic){
         _currentName = currentName;
@@ -26,8 +27,8 @@ public class recordingWorker extends SwingWorker<Void,Void> {
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{
-            Process process = builder.start();
-            process.waitFor();
+            recProcess = builder.start();
+            recProcess.waitFor();
 
         }catch (Exception e){
 

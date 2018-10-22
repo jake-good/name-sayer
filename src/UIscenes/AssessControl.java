@@ -35,6 +35,7 @@ public class AssessControl implements Initializable {
     }
 
 
+
     public void playAttempt(){
         new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'").execute();
     }
@@ -44,7 +45,7 @@ public class AssessControl implements Initializable {
     }
 
 
-    public void compare(){
+    public void compareRecordings(){
         int numberOfCompares = _numberOfCompares.getValue();
         new compareWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'",numberOfCompares).execute();
     }

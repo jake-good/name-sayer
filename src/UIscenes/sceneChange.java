@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class sceneChange {
 
-    public sceneChange(String scene) {
+    public sceneChange(String scene, String previous) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(scene + ".fxml"));
@@ -18,6 +18,7 @@ public class sceneChange {
             e1.printStackTrace();
         }
         Main.getStage().setScene(new Scene(root));
+        Main.setPreviousScene(previous);
 
     }
 

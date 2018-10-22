@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static Stage _primaryStage;
+    private static String _previousScene;
     @Override
     public void start(Stage primaryStage) throws Exception{
         _primaryStage = primaryStage;
@@ -16,10 +17,19 @@ public class Main extends Application {
         primaryStage.setTitle("Name Sayer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        _previousScene = "SELECT";
     }
 
     public static Stage getStage() {
         return _primaryStage;
+    }
+
+    public static String getPreviousScene() {
+        return _previousScene;
+    }
+
+    public static void setPreviousScene(String scene) {
+        _previousScene = scene;
     }
 
 

@@ -19,7 +19,7 @@
          <center>
             <JFXTabPane prefHeight="500.0" prefWidth="850.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                <tabs>
-                  <Tab text="Mic Level">
+                  <Tab fx:id="_mic" text="Mic Level">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -77,7 +77,7 @@
          <top>
             <AnchorPane prefHeight="68.0" prefWidth="850.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="47.0" fitWidth="38.0" layoutX="23.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="47.0" fitWidth="38.0" layoutX="23.0" layoutY="15.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/icons8-left-90.png" />
                      </image>

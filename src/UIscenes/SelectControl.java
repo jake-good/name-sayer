@@ -4,35 +4,19 @@ package UIscenes;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXRippler;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.TextArea;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.controlsfx.control.textfield.TextFields;
-import javafx.util.Duration;
-import sun.font.EAttribute;
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,44 +25,45 @@ import java.util.ResourceBundle;
 
 public class SelectControl implements Initializable {
 
-    public String _concatName = "";
+    // FXML Components references in the scene.
     @FXML private Label _nameText;
-    public Button _listenButton;
-    public Label _uploadList;
-    public TextField _name1;
-    private Boolean List;
-    private List<String> _listName = new ArrayList<String>();
-    @FXML private ImageView _menu;
+    @FXML private TextField _inputField;
+    @FXML private ImageView _menuIcon;
     @FXML private AnchorPane _slideInMenu;
-    @FXML private Label _reports;
-    @FXML private Label _addToolTip;
+    @FXML private Label _arrowIcon;
     @FXML private StackPane _parent;
-    private boolean _expanded;
+
+    // Functionality fields
+    private boolean _isList;
+    private boolean _menuExpanded;
+    private List<String> _dataBaseNames = new ArrayList<String>();
     private List<String> _nameIndividuals;
     private List<String> _reportedNames;
+    private String _concatName = "";
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        List = false;
-        _expanded = false;
+        _isList = false;
+        _menuExpanded = false;
         _nameIndividuals = new ArrayList<>();
-        _menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
+
+
+        _menuIcon.setOnMouseClicked(event -> {
+            _menuExpanded = new SlideMenu(_slideInMenu, _menuExpanded).SlideMenuMake();
         });
-        setUp();
-        //Normalise the audio, only when it's the first time it is booted up.
-        normalise();
-        //Tooltip for the Arrow image
-        _addToolTip.setTooltip(new Tooltip("Add to the list of names"));
-        getReportedNames();
+
+
+        setUp(); // Build the list of names in database for the input field auto-fill and error checking.
+        normalise(); // Normalise the audio, only when it's the first time it is booted up.
+        getReportedNames(); // Build list of names that have been reported.
     }
 
     /**
      * Changes the screen to the LISTEN screen.
      */
     public void Listen() {
-        if (!List && !_concatName.equals("")) {
+        if (!_isList && !_concatName.equals("")) {
             //parse(_name.getText());
             new NameModel(_concatName, _nameIndividuals);
             new sceneChange("LISTEN", "SELECT");
@@ -139,7 +124,7 @@ public class SelectControl implements Initializable {
                 String [] individualWords = line.split(" ");
                 int completion = 0;
                 for(int i =0; i<individualWords.length;i++) {
-                    if (_listName.contains(individualWords[i])) {
+                    if (_dataBaseNames.contains(individualWords[i])) {
                         completion++;
                     }else {
                         errorPopUp("Invalid Input Error", "ERROR! The input is invalid",
@@ -162,31 +147,31 @@ public class SelectControl implements Initializable {
      */
     public void setUp(){
         //Lists all the names of the files in the names database but removing the .wav extension
-        _listName = new DataBaseWorker().process();
+        _dataBaseNames = new DataBaseWorker().process();
 
         //Uses the 3rd party ControlsFX which is an open source project for JavaFX. This allows the textfield
         //To have an autocomplete function, more information at http://fxexperience.com/controlsfx/
-        TextFields.bindAutoCompletion(_name1,_listName);
-        NameModel._totalNames = _listName.size();
+        TextFields.bindAutoCompletion(_inputField, _dataBaseNames);
+        NameModel._totalNames = _dataBaseNames.size();
     }
 
     /**
      * Adds the chosen name to the list of names to be used and also updates the display to reflect this addition
      */
     public void add(){
-        if (_reportedNames.contains(_name1.getText())) {
-            errorPopUpButton("ERROR! The name you have chosen has been reported for poor quality", new JFXButton("Proceed regardless"), _name1.getText());
-        } else if((_listName.contains(_name1.getText()))) {
+        if (_reportedNames.contains(_inputField.getText())) {
+            errorPopUpButton("ERROR! The name you have chosen has been reported for poor quality", new JFXButton("Proceed regardless"), _inputField.getText());
+        } else if((_dataBaseNames.contains(_inputField.getText()))) {
             //Save the names, which is used to create the Name Model.
-            _concatName = _concatName + _name1.getText() + " ";
-            _nameIndividuals.add(_name1.getText());
+            _concatName = _concatName + _inputField.getText() + " ";
+            _nameIndividuals.add(_inputField.getText());
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
         } else {
             errorPopUp("Wrong Input Error","ERROR! This name does not exist",
                     "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
-        _name1.clear();
+        _inputField.clear();
     }
 
     public void clear() {

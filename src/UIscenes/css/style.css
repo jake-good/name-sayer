@@ -8,7 +8,13 @@
 }
 
 .menuLabel:hover{
-    -fx-background-color: #8c6019;
+    -fx-background-color: #4f607c;
+}
+
+/** Progress indicator **/
+
+.progress-indicator .percentage {
+    -fx-fill: white;
 }
 
 .text {

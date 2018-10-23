@@ -20,6 +20,7 @@ public class playWorker extends SwingWorker<Void,Void> {
     @Override
     public Void doInBackground(){
         String cmd = "ffplay -nodisp " + _fileName + " -autoexit";
+        System.out.println(cmd);
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
                 cmd);
         try{

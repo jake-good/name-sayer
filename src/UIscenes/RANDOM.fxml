@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,10 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RandomControl">
    <children>
-      <Label layoutX="385.0" layoutY="210.0" onMouseClicked="#playRandom" style="-fx-border-radius: 5;">
+      <Label layoutX="279.0" layoutY="188.0" onMouseClicked="#playRandom" style="-fx-border-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
          <graphic>
             <ImageView fitHeight="98.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,12 +22,12 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
-      <Label layoutX="69.0" layoutY="152.0" text="Random mode! Press the icon to play a random name from the database:" textFill="WHITE">
+      <Label layoutX="18.0" layoutY="61.0" text="Random mode! Press the icon to play a random name from the database:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="_nameLabel" layoutX="383.0" layoutY="291.0" text="Name" textFill="WHITE">
+      <Label fx:id="_nameLabel" layoutX="389.0" layoutY="209.0" prefHeight="40.0" text="     " textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
@@ -37,5 +37,6 @@
             <Image url="@../images/icons8-left-90.png" />
          </image>
       </ImageView>
+      <JFXSpinner fx:id="_loadSpinner" layoutX="385.0" layoutY="292.0" prefHeight="81.0" prefWidth="81.0" progress="0.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="384.0" />
    </children>
 </AnchorPane>

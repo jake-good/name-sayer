@@ -1,7 +1,6 @@
 package UIscenes;
 
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXProgressBar;
+import com.jfoenix.controls.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -14,12 +13,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class ListenControl implements Initializable {
 
@@ -38,6 +39,8 @@ public class ListenControl implements Initializable {
     @FXML private Pane _listViewPane;
     @FXML private JFXListView<String> _namesList;
     @FXML private JFXProgressBar _audioProgress;
+    @FXML private StackPane _parent;
+
 
     private boolean _nameListExpanded;
     private boolean _expanded;
@@ -109,16 +112,22 @@ public class ListenControl implements Initializable {
 
     public void play() {
         // Play the current name via the filename
-        new playWorker(_currentName.getFileName()).execute();
+        new playWorker("output.wav").execute();
         playProgress(getWavLength());
     }
 
-    public void Rate() {
+    public void report(String name) {
         File reportFile = new File("ratings.txt");
-        System.out.println("rated");
+        String line = "";
         try {
+            Reader r = new BufferedReader(new FileReader(reportFile));
             Writer output = new BufferedWriter(new FileWriter(reportFile, true));
-            output.append(_currentName._Name + "\n");
+            while ((line = ((BufferedReader) r).readLine())!= null) {
+                if (line.equals(name)) {
+                    return;
+                }
+            }
+            output.append(name + "\n");
             output.close();
         } catch (IOException e) {
             System.out.println("Error loading complaint log");
@@ -173,6 +182,29 @@ public class ListenControl implements Initializable {
         );
         _playTime.setCycleCount(1);
         _playTime.play();
+    }
+
+    public void chooseNamePrompt() {
+        JFXDialog popup = new JFXDialog();
+        JFXDialogLayout content = new JFXDialogLayout();
+        JFXListView<String> names= new JFXListView<>();
+        names.getItems().setAll(_currentName.get_nameIndividuals());
+
+        JFXButton reportChoice = new JFXButton("Report");
+        reportChoice.setOnAction(e ->   {
+            if (!names.getSelectionModel().getSelectedItem().equals(null)) {
+                report(names.getSelectionModel().getSelectedItem());
+                popup.close();
+            }
+        });
+        HBox container = new HBox();
+        container.getChildren().setAll(names, reportChoice);
+        content.setHeading(new Label("Choose a name file to report"));
+        content.setBody(container);
+        popup.setContent(content);
+        popup.setDialogContainer(_parent);
+        popup.show();
+
     }
 
 }

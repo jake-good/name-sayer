@@ -40,7 +40,6 @@ public class SelectControl implements Initializable {
     @FXML private Label _nameText;
     public Button _listenButton;
     public Label _uploadList;
-    public TextField _name;
     public TextField _name1;
     private Boolean List;
     private List<String> _listName = new ArrayList<String>();
@@ -49,13 +48,14 @@ public class SelectControl implements Initializable {
     @FXML private Label _reports;
     @FXML private Label _addToolTip;
     @FXML private StackPane _parent;
-
     private boolean _expanded;
+    private List<String> _nameIndividuals;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List = false;
         _expanded = false;
+        _nameIndividuals = new ArrayList<>();
         _menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
@@ -72,7 +72,7 @@ public class SelectControl implements Initializable {
     public void Listen() {
         if (!List && !_concatName.equals("")) {
             //parse(_name.getText());
-            new NameModel(_concatName, "output.wav");
+            new NameModel(_concatName, _nameIndividuals);
             new sceneChange("LISTEN", "SELECT");
         }else{
             //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
@@ -123,7 +123,7 @@ public class SelectControl implements Initializable {
                     }
                 }
                 if(completion==individualWords.length){
-                    new NameModel(line, "output.wav");
+                    new NameModel(line, _nameIndividuals);
                     completion = 0;
                 }
             }
@@ -176,6 +176,7 @@ public class SelectControl implements Initializable {
         if((_listName.contains(_name1.getText()))) {
             //Save the names, which is used to create the Name Model.
             _concatName = _concatName + _name1.getText() + " ";
+            _nameIndividuals.add(_name1.getText());
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
         }else{

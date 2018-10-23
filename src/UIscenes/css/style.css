@@ -27,6 +27,9 @@
     -fx-background-color: #394a66;
 }
 
+/** List View **/
+
+
 .jfx-list-cell:selected{
     -fx-background-color: 0.0;
 }
@@ -47,6 +50,25 @@
     -fx-background-insets: 0;
     -fx-background-color: #394a66;
 }
+
+/** Report List View **/
+
+#report {
+     -fx-background-insets: 0;
+     -fx-background-color: #394a66;
+}
+
+#report :even{
+     -fx-background-insets: 0;
+     -fx-background-color: #f45c42;
+}
+
+#report :odd {
+     -fx-background-insets: 0;
+     -fx-background-color: #f48342;
+}
+
+
 
 /** TabPane **/
 

@@ -8,7 +8,6 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -20,12 +19,10 @@ import javafx.util.Duration;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class ListenControl implements Initializable {
 
     private NameModel _currentName;
-    @FXML private Label _expandList;
     public Label _nameLabel;
     @FXML
     private AnchorPane _slideInMenu;

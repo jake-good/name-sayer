@@ -89,57 +89,13 @@ public class SelectControl implements Initializable {
         new sceneChange("RANDOM", "SELECT");
     }
 
-
     /**
-     * Loads a text file that the user has chosen to upload.
+     * Lets the user choose a text file to upload, which will then load the chosen names into the application.
      */
-    public void uploadFile() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Audio Files", "*.txt", "*.mp3", "*.aac"));
-        Window stage = new Stage();
-        File selectedFile = fileChooser.showOpenDialog(stage);
-        String fileName = "";
-        if (selectedFile != null) {
-            fileName = selectedFile.getName();
-            try {
-                getList(fileName);
-            } catch (Exception e) {}
-        }
+    public void uploadTextFile(){
+        new textFileUpload(_dataBaseNames,this).uploadFile();
     }
 
-    /**
-     * Uses the uploaded text file to load all the names into the application.
-     * @param fileName
-     * @throws Exception
-     */
-    public void getList(String fileName) throws Exception {
-        File namesList = new File(fileName);
-        try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                //This checks if all the names are valid, if not, an error dialogue pops up informing the user that
-                //There is an error.
-                String [] individualWords = line.split(" ");
-                int completion = 0;
-                for(int i =0; i<individualWords.length;i++) {
-                    if (_dataBaseNames.contains(individualWords[i])) {
-                        completion++;
-                    }else {
-                        errorPopUp("Invalid Input Error", "ERROR! The input is invalid",
-                                "Please double check that all the names are \ncorrect and are in the database!");
-                        return;
-                    }
-                }
-                if(completion==individualWords.length){
-                    new NameModel(line, Arrays.asList(individualWords));
-                    completion = 0;
-                }
-            }
-        }
-        new sceneChange("LISTEN", "SELECT");
-    }
 
     /**
      * This sets up the necessary variables needed within this class, such as a parsed list of names in the database and

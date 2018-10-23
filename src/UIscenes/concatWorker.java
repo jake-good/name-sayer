@@ -10,7 +10,6 @@ import java.util.List;
 
 public class concatWorker extends SwingWorker<Void,Void> {
 
-    private List<String> _files = new ArrayList<String>();
     private String _input;
     private String _cmd = "";
 

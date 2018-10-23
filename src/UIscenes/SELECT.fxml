@@ -89,9 +89,9 @@
                   </Label>
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutX="338.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#uploadFile" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="Upload a list instead" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="338.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#uploadTextFile" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="Upload a list instead" textFill="WHITE">
                <graphic>
-                  <Label fx:id="_uploadList" onMouseClicked="#uploadFile" textFill="WHITE" underline="true">
+                  <Label fx:id="_uploadList" onMouseClicked="#uploadTextFile" textFill="WHITE" underline="true">
                      <font>
                         <Font size="14.0" />
                      </font>

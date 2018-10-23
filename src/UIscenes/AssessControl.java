@@ -29,7 +29,10 @@ public class AssessControl implements Initializable {
         new sceneChange("RECORD", "ASSESS");
     }
 
-    public void Select() { new sceneChange("SELECT", "ASSESS"); }
+    public void Select() { new sceneChange("SELECT", "ASSESS");
+        NameModel._Names.clear();
+        NameModel._currentName = 0;
+    }
 
     public void Listen() {
         new sceneChange("LISTEN", "ASSESS");

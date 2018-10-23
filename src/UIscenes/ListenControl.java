@@ -62,7 +62,6 @@ public class ListenControl implements Initializable {
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
-
         if (NameModel._Names.size() > 1) {
             for (NameModel name : NameModel._Names) {
                 _namesList.getItems().add(name._Name);

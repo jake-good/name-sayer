@@ -54,7 +54,10 @@ public class RecordControl implements Initializable {
         }
     }
 
-    public void Select() { new sceneChange("SELECT", "RECORD"); }
+    public void Select() { new sceneChange("SELECT", "RECORD");
+        NameModel._Names.clear();
+        NameModel._currentName = 0;
+    }
 
     public void Listen() {
         new sceneChange("LISTEN", "RECORD");

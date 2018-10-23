@@ -12,7 +12,6 @@ public class NameModel {
     public static List<NameModel> _Names;
     public static int _currentName;
     private boolean _reported;
-    private static int[] nameStats;
 
     public List<String> get_nameIndividuals() {
         return _nameIndividuals;

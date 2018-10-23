@@ -74,6 +74,9 @@ public class SelectControl implements Initializable {
         getReportedNames();
     }
 
+    /**
+     * Changes the screen to the LISTEN screen.
+     */
     public void Listen() {
         if (!List && !_concatName.equals("")) {
             //parse(_name.getText());
@@ -87,10 +90,16 @@ public class SelectControl implements Initializable {
         }
     }
 
+    /**
+     * Changes the screen to the EXTRA screen.
+     */
     public void extra() {
         new sceneChange("EXTRA", "SELECT");
     }
 
+    /**
+     * Changes the screen to the RANDOM screen.
+     */
     public void Random() {
         new sceneChange("RANDOM", "SELECT");
     }
@@ -161,6 +170,9 @@ public class SelectControl implements Initializable {
         NameModel._totalNames = _listName.size();
     }
 
+    /**
+     * Adds the chosen name to the list of names to be used and also updates the display to reflect this addition
+     */
     public void add(){
         if (_reportedNames.contains(_name1.getText())) {
             errorPopUpButton("ERROR! The name you have chosen has been reported for poor quality", new JFXButton("Proceed regardless"), _name1.getText());

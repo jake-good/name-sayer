@@ -147,35 +147,7 @@ public class SelectControl implements Initializable {
      */
     public void setUp(){
         //Lists all the names of the files in the names database but removing the .wav extension
-        ProcessBuilder listBuilder = new ProcessBuilder("/bin/bash", "-c", "ls DataBase-VoNZ-word -1 | sed 's/.*_//' | sed -n 's/\\.wav$//p'");
-        try{
-            Process listProcess = listBuilder.start();
-
-            InputStream stdout = listProcess.getInputStream();
-
-            BufferedReader stdoutBuffered = new BufferedReader(new InputStreamReader(stdout));
-            String line = null;
-            int i = 1;
-            while((line = stdoutBuffered.readLine())!= null){
-                if(_listName.contains(line)){
-                    for(String name : _listName){
-                        if(name == line){
-                            i++;
-                        }else if (name.contains("(")){
-                            if(name.substring(0,name.length()-3).equals(line)){
-                                i++;
-                            }
-                        }
-                    }
-                    //Adds an indicator that there are multiple names with the same name. eg Li, Li(1), Li(2)...
-                    _listName.add(line + "(" + Integer.toString(i) + ")");
-                    i=1;
-                }else {
-                    _listName.add(line);
-                    i=1;
-                }
-            }
-        }catch(Exception e){e.printStackTrace();}
+        _listName = new DataBaseWorker().process();
 
         //Uses the 3rd party ControlsFX which is an open source project for JavaFX. This allows the textfield
         //To have an autocomplete function, more information at http://fxexperience.com/controlsfx/

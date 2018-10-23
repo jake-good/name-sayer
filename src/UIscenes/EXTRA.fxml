@@ -44,14 +44,14 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="_namesInDB" layoutX="230.0" text="59" textFill="#e4c1c1">
-                                       <font>
-                                          <Font size="56.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="30.0" layoutY="94.0" text="names practiced in databased." textFill="#947d7d">
+                                    <Label layoutX="30.0" layoutY="94.0" text="names practiced this session." textFill="#947d7d">
                                        <font>
                                           <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="_namesInDB" layoutX="252.0" layoutY="1.0" text="59" textFill="#e4c1c1">
+                                       <font>
+                                          <Font size="56.0" />
                                        </font>
                                     </Label>
                                  </children>

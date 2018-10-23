@@ -1,7 +1,6 @@
 package UIscenes;
 
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXProgressBar;
+import com.jfoenix.controls.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -14,12 +13,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class ListenControl implements Initializable {
 
@@ -38,6 +39,8 @@ public class ListenControl implements Initializable {
     @FXML private Pane _listViewPane;
     @FXML private JFXListView<String> _namesList;
     @FXML private JFXProgressBar _audioProgress;
+    @FXML private StackPane _parent;
+
 
     private boolean _nameListExpanded;
     private boolean _expanded;
@@ -59,10 +62,6 @@ public class ListenControl implements Initializable {
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
-        _expandList.setOnMouseClicked(event -> {
-            listTransition();
-        });
-
         if (NameModel._Names.size() > 1) {
             for (NameModel name : NameModel._Names) {
                 _namesList.getItems().add(name._Name);
@@ -109,16 +108,23 @@ public class ListenControl implements Initializable {
 
     public void play() {
         // Play the current name via the filename
-        new playWorker(_currentName.getFileName()).execute();
+        new playWorker("output.wav").execute();
         playProgress(getWavLength());
+        _currentName.addToListened();
     }
 
-    public void Rate() {
-        File reportFile = new File("ratings.txt");
-        System.out.println("rated");
+    public void report(String name) {
+        File reportFile = new File("reports.txt");
+        String line = "";
         try {
+            Reader r = new BufferedReader(new FileReader(reportFile));
             Writer output = new BufferedWriter(new FileWriter(reportFile, true));
-            output.append(_currentName._Name + "\n");
+            while ((line = ((BufferedReader) r).readLine())!= null) {
+                if (line.equals(name)) {
+                    return;
+                }
+            }
+            output.append(name + "\n");
             output.close();
         } catch (IOException e) {
             System.out.println("Error loading complaint log");
@@ -127,8 +133,8 @@ public class ListenControl implements Initializable {
 
     public void listTransition() {
         TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _listViewPane);
-        slideIn.setFromY(250);
-        slideIn.setToY(0);
+        slideIn.setFromX(-200);
+        slideIn.setToX(0);
 
         if (!_nameListExpanded) {
             slideIn.setRate(1);
@@ -173,6 +179,29 @@ public class ListenControl implements Initializable {
         );
         _playTime.setCycleCount(1);
         _playTime.play();
+    }
+
+    public void chooseNamePrompt() {
+        JFXDialog popup = new JFXDialog();
+        JFXDialogLayout content = new JFXDialogLayout();
+        JFXListView<String> names= new JFXListView<>();
+        names.getItems().setAll(_currentName.get_nameIndividuals());
+
+        JFXButton reportChoice = new JFXButton("Report");
+        reportChoice.setOnAction(e ->   {
+            if (!names.getSelectionModel().isEmpty()) {
+                report(names.getSelectionModel().getSelectedItem());
+                popup.close();
+            }
+        });
+        HBox container = new HBox();
+        container.getChildren().setAll(names, reportChoice);
+        content.setHeading(new Label("Choose a name file to report"));
+        content.setBody(container);
+        popup.setContent(content);
+        popup.setDialogContainer(_parent);
+        popup.show();
+
     }
 
 }

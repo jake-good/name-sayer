@@ -26,17 +26,20 @@ public class AssessControl implements Initializable {
     @FXML private Label _dateBaseAttempToolTip;
 
     public void Return() {
-        new sceneChange("RECORD", "ASSES");
+        new sceneChange("RECORD", "ASSESS");
     }
 
-    public void Select() { new sceneChange("SELECT", "ASSES"); }
+    public void Select() { new sceneChange("SELECT", "ASSESS");
+        NameModel._Names.clear();
+        NameModel._currentName = 0;
+    }
 
     public void Listen() {
-        new sceneChange("LISTEN", "ASSES");
+        new sceneChange("LISTEN", "ASSESS");
     }
 
     public void Extra() {
-        new sceneChange("EXTRA", "ASSES");
+        new sceneChange("EXTRA", "ASSESS");
     }
 
 

@@ -1,6 +1,7 @@
 package UIscenes;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXRippler;
@@ -17,6 +18,8 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -29,8 +32,10 @@ import javafx.util.Duration;
 import sun.font.EAttribute;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -40,7 +45,6 @@ public class SelectControl implements Initializable {
     @FXML private Label _nameText;
     public Button _listenButton;
     public Label _uploadList;
-    public TextField _name;
     public TextField _name1;
     private Boolean List;
     private List<String> _listName = new ArrayList<String>();
@@ -49,30 +53,31 @@ public class SelectControl implements Initializable {
     @FXML private Label _reports;
     @FXML private Label _addToolTip;
     @FXML private StackPane _parent;
-
     private boolean _expanded;
+    private List<String> _nameIndividuals;
+    private List<String> _reportedNames;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List = false;
         _expanded = false;
+        _nameIndividuals = new ArrayList<>();
         _menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
-        });
-        _reports.setOnMouseClicked(event -> {
-                new sceneChange("REPORT", 350, 300);
         });
         setUp();
         //Normalise the audio, only when it's the first time it is booted up.
         normalise();
         //Tooltip for the Arrow image
         _addToolTip.setTooltip(new Tooltip("Add to the list of names"));
+        getReportedNames();
     }
 
     public void Listen() {
         if (!List && !_concatName.equals("")) {
             //parse(_name.getText());
-            new NameModel(_concatName, "output.wav");
+            new NameModel(_concatName, _nameIndividuals);
             new sceneChange("LISTEN", "SELECT");
         }else{
             //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
@@ -123,7 +128,7 @@ public class SelectControl implements Initializable {
                     }
                 }
                 if(completion==individualWords.length){
-                    new NameModel(line, "output.wav");
+                    new NameModel(line, Arrays.asList(individualWords));
                     completion = 0;
                 }
             }
@@ -170,15 +175,19 @@ public class SelectControl implements Initializable {
         //Uses the 3rd party ControlsFX which is an open source project for JavaFX. This allows the textfield
         //To have an autocomplete function, more information at http://fxexperience.com/controlsfx/
         TextFields.bindAutoCompletion(_name1,_listName);
+        NameModel._totalNames = _listName.size();
     }
 
     public void add(){
-        if((_listName.contains(_name1.getText()))) {
+        if (_reportedNames.contains(_name1.getText())) {
+            errorPopUpButton("ERROR! The name you have chosen has been reported for poor quality", new JFXButton("Proceed regardless"), _name1.getText());
+        } else if((_listName.contains(_name1.getText()))) {
             //Save the names, which is used to create the Name Model.
             _concatName = _concatName + _name1.getText() + " ";
+            _nameIndividuals.add(_name1.getText());
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
-        }else{
+        } else {
             errorPopUp("Wrong Input Error","ERROR! This name does not exist",
                     "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
@@ -212,8 +221,45 @@ public class SelectControl implements Initializable {
         layout.setHeading(new Label(headerText));
         dialog.setContent(layout);
         dialog.show();
-
-
-
     }
+
+    public void errorPopUpButton(String headerText, JFXButton button, String name){
+        JFXDialog dialog = new JFXDialog();
+        dialog.setDialogContainer(_parent);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        button.setOnAction(e-> {
+            _concatName = _concatName + name + " ";
+            _nameIndividuals.add(name);
+            //Updates the list view of all the chosen names.
+            _nameText.setText(_concatName);
+            dialog.close();
+        });
+        button.setStyle("-fx-background-color: orange");
+        layout.setBody(button);
+        layout.setHeading(new Label(headerText));
+        dialog.setContent(layout);
+        dialog.show();
+    }
+
+    public void getReportedNames() {
+        _reportedNames = new ArrayList<>();
+        File reportFile = new File("reports.txt");
+        String line = "";
+        try {
+            Reader r = new BufferedReader(new FileReader(reportFile));
+            while ((line = ((BufferedReader) r).readLine())!= null) {
+                _reportedNames.add(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading complaint log");
+        }
+    }
+
+    public void handleEnter(KeyEvent ke) {
+        if (ke.getCode().equals(KeyCode.ENTER)) {
+            add();
+        }
+    }
+
+
 }

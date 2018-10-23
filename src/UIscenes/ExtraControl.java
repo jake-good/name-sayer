@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +19,10 @@ public class ExtraControl implements Initializable {
     @FXML private Label _namesPracticed;
     @FXML private Label _namesInDB;
     @FXML private Label _prompt;
-    @FXML private JFXListView _listView;
+    @FXML private JFXListView<String> _listView;
     @FXML private Tab _mic;
     @FXML private Tab _prog;
+    private List<String> _reports;
 
     private MicrophoneLevel _micLine;
 
@@ -35,20 +33,24 @@ public class ExtraControl implements Initializable {
         _micLine = new MicrophoneLevel(_micBar);
         getReports();
         getAttempts();
+        if (NameModel._ListenedNames!= null) {
+            _namesPracticed.setText(Integer.toString(NameModel._ListenedNames.size()));
+        }
+        _namesInDB.setText(Integer.toString(NameModel._totalNames));
     }
 
     public void getReports() {
-        List<String> reports = new ArrayList<>();
-        File rep = new File("ratings.txt");
+        _reports = new ArrayList<>();
+        File rep = new File("reports.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(rep))) {
             String line;
             while ((line = br.readLine()) != null) {
-                reports.add(line);
+                _reports.add(line);
             }
         } catch (IOException e) {
             System.out.println("broke");
         }
-        _listView.getItems().addAll(reports);
+        _listView.getItems().addAll(_reports);
     }
 
     public void getAttempts() {
@@ -60,5 +62,29 @@ public class ExtraControl implements Initializable {
         _micLine.closeLine();
     }
 
+    public void remove() {
+        if (!_listView.getSelectionModel().isEmpty()) {
+            String toRemove = _listView.getSelectionModel().getSelectedItem();
+            _reports.remove(toRemove);
+            writeReports(_reports);
+            setListView();
+        }
+    }
 
+    public void setListView() {
+        _listView.getItems().setAll(_reports);
+    }
+
+    public void writeReports(List<String> _reports) {
+        File reports = new File("reports.txt");
+        try {
+            PrintWriter pw = new PrintWriter(reports);
+            pw.close();
+            Writer br = new BufferedWriter(new FileWriter(reports));
+            for (String file : _reports) {
+                br.append(file + "\n");
+            }
+            br.close();
+        } catch (IOException e) {}
+    }
 }

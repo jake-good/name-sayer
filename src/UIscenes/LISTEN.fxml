@@ -1,102 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.ListenControl">
+<StackPane fx:id="_parent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.ListenControl">
    <children>
-      <HBox layoutX="38.0" layoutY="117.0" spacing="40.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;">
          <children>
-            <Label text="Name:" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="_nameLabel" prefHeight="36.0" text="Fred Dagg" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <Button contentDisplay="RIGHT" layoutX="351.0" layoutY="387.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" stylesheets="@css/style.css" text="RECORD AN ATTEMPT" />
-      <ImageView fx:id="_nextArrow" fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="401.0" onMouseClicked="#next">
-         <image>
-            <Image url="@../images/icons8-arrow-filled-100.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="_prevArrow" fitHeight="60.0" fitWidth="60.0" layoutX="54.0" layoutY="401.0" onMouseClicked="#previous" rotate="180.0">
-         <image>
-            <Image url="@../images/icons8-arrow-filled-100.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="719.0" layoutY="314.0" onMouseClicked="#Rate" text="Report this name" textFill="#fcfcfc" underline="true" />
-      <ImageView fx:id="menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/menu.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="_listViewPane" layoutX="331.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" translateY="250.0" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="250.0">
-         <children>
-            <JFXListView fx:id="_namesList" maxHeight="200.0" prefWidth="200.0" styleClass="jfx-list-view" stylesheets="@css/style.css" />
-         </children>
-      </Pane>
-      <Label fx:id="_expandList" layoutX="365.0" layoutY="478.0" text="View Names in list" textFill="#fffdfd" underline="true" />
-      <JFXProgressBar id="play" fx:id="_audioProgress" layoutX="185.0" layoutY="218.0" prefHeight="3.0" prefWidth="480.0" progress="0.0" stylesheets="@css/style.css" />
-      <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
-         <children>
-            <Label fx:id="_homeLabel" graphicTextGap="0.0" stylesheets="@css/style.css" text="HOME" wrapText="true">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <styleClass>
-                  <String fx:value="menuLabel" />
-                  <String fx:value="text" />
-               </styleClass>
-            </Label>
-            <Label fx:id="_micTest" layoutX="65.0" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-            </Label>
-            <Label layoutX="132.0" onMouseClicked="#Record" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="715.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
-               <styleClass>
-                  <String fx:value="menuLabel" />
-                  <String fx:value="text" />
-               </styleClass>
+            <HBox layoutX="298.0" layoutY="46.0" spacing="40.0" AnchorPane.rightAnchor="298.0">
+               <children>
+                  <Label text="Name:" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="_nameLabel" prefHeight="36.0" text="Fred Dagg" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button contentDisplay="RIGHT" layoutX="351.0" layoutY="387.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" stylesheets="@css/style.css" text="RECORD AN ATTEMPT" />
+            <ImageView fx:id="_nextArrow" fitHeight="60.0" fitWidth="60.0" layoutX="762.0" layoutY="416.0" onMouseClicked="#next">
+               <image>
+                  <Image url="@../images/icons8-arrow-filled-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="_prevArrow" fitHeight="60.0" fitWidth="60.0" layoutX="29.0" layoutY="416.0" onMouseClicked="#previous" rotate="180.0">
+               <image>
+                  <Image url="@../images/icons8-arrow-filled-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menu.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="_listViewPane" layoutY="216.0" prefHeight="200.0" prefWidth="200.0" translateX="-200.0" AnchorPane.bottomAnchor="84.0" AnchorPane.topAnchor="216.0">
+               <children>
+                  <JFXListView fx:id="_namesList" maxHeight="200.0" prefWidth="200.0" styleClass="jfx-list-view" stylesheets="@css/style.css" />
+               </children></Pane>
+            <JFXProgressBar id="play" fx:id="_audioProgress" layoutX="185.0" layoutY="201.0" prefHeight="3.0" prefWidth="480.0" progress="0.0" stylesheets="@css/style.css" />
+            <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
+               <children>
+                  <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="_micTest" layoutX="65.0" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="132.0" onMouseClicked="#Record" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="715.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="397.0" layoutY="82.0" onMouseClicked="#play" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css" textAlignment="CENTER">
+               <tooltip>
+                  <Tooltip text="Play file" />
+               </tooltip>
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="66.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons/stats.png" />
+                        <Image url="@../images/icons/play.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
+            <JFXButton buttonType="RAISED" layoutX="550.0" layoutY="461.0" mnemonicParsing="false" onAction="#chooseNamePrompt" ripplerFill="RED" style="-fx-background-color: #4f607c;" text="Report a name file" textFill="WHITE" underline="true" />
+            <JFXButton buttonType="RAISED" layoutX="161.0" layoutY="461.0" mnemonicParsing="false" onAction="#listTransition" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="View names in list" textFill="WHITE" underline="true" />
          </children>
       </AnchorPane>
-      <Label layoutX="537.0" layoutY="105.0" onMouseClicked="#play" style="-fx-background-radius: 30;">
-         <graphic>
-            <ImageView fitHeight="66.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/play.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Label>
    </children>
-</AnchorPane>
+</StackPane>

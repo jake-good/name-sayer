@@ -33,6 +33,10 @@ public class ExtraControl implements Initializable {
         _micLine = new MicrophoneLevel(_micBar);
         getReports();
         getAttempts();
+        if (NameModel._ListenedNames!= null) {
+            _namesPracticed.setText(Integer.toString(NameModel._ListenedNames.size()));
+        }
+        _namesInDB.setText(Integer.toString(NameModel._totalNames));
     }
 
     public void getReports() {

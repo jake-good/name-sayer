@@ -175,6 +175,7 @@ public class SelectControl implements Initializable {
         //Uses the 3rd party ControlsFX which is an open source project for JavaFX. This allows the textfield
         //To have an autocomplete function, more information at http://fxexperience.com/controlsfx/
         TextFields.bindAutoCompletion(_name1,_listName);
+        NameModel._totalNames = _listName.size();
     }
 
     public void add(){

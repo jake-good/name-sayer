@@ -110,6 +110,7 @@ public class ListenControl implements Initializable {
         // Play the current name via the filename
         new playWorker("output.wav").execute();
         playProgress(getWavLength());
+        _currentName.addToListened();
     }
 
     public void report(String name) {

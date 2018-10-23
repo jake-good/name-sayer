@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="_parent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" styleClass="progress-bar" stylesheets="@css/style.css">
@@ -39,10 +38,17 @@
             <Button fx:id="_discardButton" layoutX="448.0" layoutY="340.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" text="DISCARD" visible="false" />
             <ImageView fx:id="Mic" fitHeight="82.0" fitWidth="78.0" layoutX="227.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/black-mic.png" />
+                  <Image url="@../images/icons/mirc.png" />
                </image>
             </ImageView>
-            <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" style="-fx-background-color: #394a66;" translateY="-47.0">
+            <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menu.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="cr" layoutX="348.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="BEGIN RECORDING" />
+            <Button fx:id="d1" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
+            <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
                <children>
                   <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
                      <padding>
@@ -53,33 +59,36 @@
                         <String fx:value="text" />
                      </styleClass>
                   </Label>
-                  <Label onMouseClicked="#Listen" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
+                  <Label fx:id="_micTest" layoutX="65.0" onMouseClicked="#Listen" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Label>
-                  <Label style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
+                  <Label layoutX="132.0" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="187.0" layoutY="10.0" onMouseClicked="#Compare" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="715.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="208.0" onMouseClicked="#Compare" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Label>
                </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </HBox>
-            <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/menu.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="cr" layoutX="348.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="BEGIN RECORDING" />
-            <Button fx:id="d1" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
+            </AnchorPane>
             <JFXProgressBar fx:id="_recordingProgress" layoutX="336.0" layoutY="214.0" prefWidth="200.0" progress="0.0" styleClass="jfx-progress-bar" stylesheets="@css/style.css" />
          </children>
       </AnchorPane>

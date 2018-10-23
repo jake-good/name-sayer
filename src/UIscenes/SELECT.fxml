@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXDialog?>
-<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
@@ -18,43 +16,12 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" stylesheets="@css/style.css">
          <children>
-            <HBox layoutX="211.0" layoutY="286.0" prefHeight="45.0" spacing="40.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="47.0" prefHeight="62.0" prefWidth="357.0" style="-fx-text-fill: #000000;" text="NameSayer">
                <font>
                   <Font size="57.0" />
                </font>
             </Label>
-            <Label fx:id="_uploadList" layoutX="354.0" layoutY="451.0" onMouseClicked="#uploadFile" text="Upload a list instead" textFill="WHITE" underline="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Button fx:id="_listenButton" layoutX="388.0" layoutY="380.0" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" text="LISTEN" />
-            <HBox fx:id="slideInMenu" alignment="CENTER" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" style="-fx-background-color: #394a66;" translateY="-47.0">
-               <children>
-                  <Label fx:id="_homeLabel" graphicTextGap="0.0" style="-fx-background-color: #617596;" stylesheets="@css/style.css" text="HOME" wrapText="true">
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
-                     <styleClass>
-                        <String fx:value="menuLabel" />
-                        <String fx:value="text" />
-                     </styleClass>
-                  </Label>
-                  <Label graphicTextGap="0.0" layoutX="10.0" layoutY="11.0" onMouseClicked="#extra" stylesheets="@css/style.css" text="EXTRA" wrapText="true">
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
-                     <styleClass>
-                        <String fx:value="menuLabel" />
-                        <String fx:value="text" />
-                     </styleClass>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </HBox>
             <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/menu.png" />
@@ -66,7 +33,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="_listenButton1" layoutX="638.0" layoutY="309.0" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="76.0" text="CLEAR" />
             <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
                <font>
                   <Font size="16.0" />
@@ -81,11 +47,60 @@
                   </ImageView>
                </graphic>
             </Label>
-            <JFXDialog prefHeight="150.0" prefWidth="200.0">
+            <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
                <children>
-                  <JFXDialogLayout prefHeight="200.0" prefWidth="100.0" />
+                  <Label fx:id="_homeLabel" graphicTextGap="0.0" style="-fx-background-color: #617596;" stylesheets="@css/style.css" text="HOME" wrapText="true">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="715.0" onMouseClicked="#extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
                </children>
-            </JFXDialog>
+            </AnchorPane>
+            <JFXButton buttonType="RAISED" layoutX="363.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#uploadFile" style="-fx-background-color: #394a66;" text="Upload a list instead" textFill="WHITE">
+               <graphic>
+                  <Label fx:id="_uploadList" onMouseClicked="#uploadFile" textFill="WHITE" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/folder.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="638.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#clear" prefHeight="29.0" prefWidth="76.0" ripplerFill="#ff0505" style="-fx-background-color: #394a66;" text="Clear" textFill="WHITE">
+               <graphic>
+                  <Label>
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic></JFXButton>
          </children>
       </AnchorPane>
    </children>

@@ -31,7 +31,6 @@
             <Button mnemonicParsing="false" onMouseClicked="#compareRecordings" prefHeight="29.0" prefWidth="76.0" stylesheets="@css/style.css" text="GO" />
          </children>
       </HBox>
-      <Label layoutX="742.0" layoutY="14.0" onMouseClicked="#Return" text="Back to recording" textFill="#a7a7a7" underline="true" />
       <HBox layoutX="312.0" layoutY="162.0" spacing="40.0">
          <children>
             <Label text="Name:" textFill="WHITE">
@@ -51,37 +50,6 @@
             <Image url="@../images/menu.png" />
          </image>
       </ImageView>
-      <HBox fx:id="slideInMenu" alignment="CENTER_RIGHT" layoutX="75.0" maxHeight="115.0" opacity="0.49" prefHeight="47.0" style="-fx-background-color: #394a66;" translateY="-47.0">
-         <children>
-            <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <styleClass>
-                  <String fx:value="menuLabel" />
-                  <String fx:value="text" />
-               </styleClass>
-            </Label>
-            <Label onMouseClicked="#Listen" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-            </Label>
-            <Label onMouseClicked="#Return" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-            </Label>
-            <Label layoutX="274.0" layoutY="10.0" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-            </Label>
-         </children>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </HBox>
       <Label fx:id="_dateBaseAttempToolTip" layoutX="675.0" layoutY="188.0" onMouseClicked="#playDataBase" prefHeight="68.0" prefWidth="56.0">
          <graphic>
             <ImageView fitHeight="83.0" fitWidth="79.0" onMouseClicked="#playDataBase">
@@ -99,5 +67,46 @@
             </ImageView>
          </graphic>
       </Label>
+      <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
+         <children>
+            <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="menuLabel" />
+                  <String fx:value="text" />
+               </styleClass>
+            </Label>
+            <Label fx:id="_micTest" layoutX="65.0" onMouseClicked="#Listen" styleClass="menuLabel" stylesheets="@css/style.css" text="LISTEN" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <Label layoutX="132.0" onMouseClicked="#Return" styleClass="menuLabel" stylesheets="@css/style.css" text="RECORD" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="715.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+               <styleClass>
+                  <String fx:value="menuLabel" />
+                  <String fx:value="text" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/stats.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="208.0" style="-fx-background-color: #617596;" styleClass="menuLabel" stylesheets="@css/style.css" text="COMPARE" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

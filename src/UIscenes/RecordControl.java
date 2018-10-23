@@ -14,6 +14,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
@@ -33,7 +34,7 @@ public class RecordControl implements Initializable {
     public ImageView Mic;
     @FXML
     private ImageView _menu;
-    @FXML private HBox slideInMenu;
+    @FXML private AnchorPane _slideInMenu;
     @FXML private Button _playButton;
     @FXML private Button _discardButton;
     @FXML private StackPane _parent;
@@ -59,17 +60,22 @@ public class RecordControl implements Initializable {
         new sceneChange("LISTEN", "RECORD");
     }
 
+    public void Extra() {
+        new sceneChange("EXTRA", "RECORD");
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         _currentName = NameModel._Names.get(NameModel._currentName);
         Name.setText(_currentName.getName());
         _menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
     }
 
     public void Record() {
-        File file = new File("src/images/orange-mic.png");
+        File file = new File("src/images/icons/micOrange.png");
         javafx.scene.image.Image image = new Image(file.toURI().toString());
         Mic.setImage(image);
 

@@ -1,15 +1,16 @@
 package UIscenes;
 
 import javafx.animation.TranslateTransition;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 public class SlideMenu {
 
-    private HBox _slideInMenu;
+    private AnchorPane _slideInMenu;
     private boolean _expanded;
-    public SlideMenu(HBox HBox, boolean expanded) {
-        _slideInMenu = HBox;
+    public SlideMenu(AnchorPane pane, boolean expanded) {
+        _slideInMenu = pane;
         _expanded = expanded;
     }
 

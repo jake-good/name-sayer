@@ -45,7 +45,7 @@ public class SelectControl implements Initializable {
     private Boolean List;
     private List<String> _listName = new ArrayList<String>();
     @FXML private ImageView _menu;
-    @FXML private HBox slideInMenu;
+    @FXML private AnchorPane _slideInMenu;
     @FXML private Label _reports;
     @FXML private Label _addToolTip;
     @FXML private StackPane _parent;
@@ -57,7 +57,7 @@ public class SelectControl implements Initializable {
         List = false;
         _expanded = false;
         _menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
         _reports.setOnMouseClicked(event -> {
                 new sceneChange("REPORT", 350, 300);

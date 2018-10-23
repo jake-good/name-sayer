@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -26,7 +27,7 @@ public class ListenControl implements Initializable {
     @FXML private Label _expandList;
     public Label _nameLabel;
     @FXML
-    private HBox slideInMenu;
+    private AnchorPane _slideInMenu;
     @FXML
     private ImageView menu;
     @FXML
@@ -47,12 +48,16 @@ public class ListenControl implements Initializable {
         new sceneChange("RECORD", "LISTEN");
     }
 
+    public void Extra() {
+        new sceneChange("EXTRA", "LISTEN");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setName();
         new concatWorker(_currentName._Name).execute();
         menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
         _expandList.setOnMouseClicked(event -> {
             listTransition();

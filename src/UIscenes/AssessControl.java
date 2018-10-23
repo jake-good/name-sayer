@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.net.URL;
@@ -18,7 +19,7 @@ public class AssessControl implements Initializable {
     private NameModel _currentName;
     @FXML public ComboBox<Integer> _numberOfCompares;
     @FXML private ImageView _menu;
-    @FXML private HBox slideInMenu;
+    @FXML private AnchorPane _slideInMenu;
     private boolean _expanded;
     public Label _nameLabel;
     @FXML private Label _yourAttempToolTip;
@@ -33,6 +34,11 @@ public class AssessControl implements Initializable {
     public void Listen() {
         new sceneChange("LISTEN", "ASSES");
     }
+
+    public void Extra() {
+        new sceneChange("EXTRA", "ASSES");
+    }
+
 
 
 
@@ -56,7 +62,7 @@ public class AssessControl implements Initializable {
         _numberOfCompares.getItems().setAll(1, 2, 3, 4, 5, 6);
         _nameLabel.setText(_currentName.getName());
         _menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(slideInMenu, _expanded).SlideMenuMake();
+            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
 
         _yourAttempToolTip.setTooltip(new Tooltip("Play your attempt at saying the name"));

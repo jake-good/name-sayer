@@ -32,8 +32,10 @@ import javafx.util.Duration;
 import sun.font.EAttribute;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -126,7 +128,7 @@ public class SelectControl implements Initializable {
                     }
                 }
                 if(completion==individualWords.length){
-                    new NameModel(line, _nameIndividuals);
+                    new NameModel(line, Arrays.asList(individualWords));
                     completion = 0;
                 }
             }

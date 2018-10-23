@@ -67,7 +67,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXListView fx:id="_listView" layoutX="219.0" layoutY="74.0" prefHeight="200.0" prefWidth="412.0" style="-fx-background-color: white;" />
+                              <JFXListView fx:id="_listView" layoutX="219.0" layoutY="74.0" prefHeight="200.0" prefWidth="412.0" />
                            </children></AnchorPane>
                      </content>
                   </Tab>

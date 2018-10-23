@@ -91,6 +91,11 @@ public class SelectControl implements Initializable {
         new sceneChange("EXTRA", "SELECT");
     }
 
+    public void Random() {
+        new sceneChange("RANDOM", "SELECT");
+    }
+
+
     public void uploadFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");

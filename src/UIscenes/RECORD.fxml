@@ -87,6 +87,19 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="636.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
                </children>
             </AnchorPane>
             <JFXProgressBar fx:id="_recordingProgress" layoutX="336.0" layoutY="214.0" prefWidth="200.0" progress="0.0" styleClass="jfx-progress-bar" stylesheets="@css/style.css" />

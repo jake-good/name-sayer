@@ -55,6 +55,11 @@ public class ListenControl implements Initializable {
         new sceneChange("EXTRA", "LISTEN");
     }
 
+    public void Random() {
+        new sceneChange("RANDOM", "LISTEN");
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setName();

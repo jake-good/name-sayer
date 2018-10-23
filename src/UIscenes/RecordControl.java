@@ -67,6 +67,11 @@ public class RecordControl implements Initializable {
         new sceneChange("EXTRA", "RECORD");
     }
 
+    public void Random() {
+        new sceneChange("RANDOM", "RECORD");
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

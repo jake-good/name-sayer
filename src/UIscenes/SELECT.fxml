@@ -70,6 +70,19 @@
                         </ImageView>
                      </graphic>
                   </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="650.0" onMouseClicked="#Random" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="menuLabel" />
+                        <String fx:value="text" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/icons8-shuffle-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
                </children>
             </AnchorPane>
             <JFXButton buttonType="RAISED" layoutX="338.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#uploadFile" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="Upload a list instead" textFill="WHITE">

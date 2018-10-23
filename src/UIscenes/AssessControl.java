@@ -42,6 +42,11 @@ public class AssessControl implements Initializable {
         new sceneChange("EXTRA", "ASSESS");
     }
 
+    public void Random() {
+        new sceneChange("RANDOM", "ASSESS");
+    }
+
+
 
 
 

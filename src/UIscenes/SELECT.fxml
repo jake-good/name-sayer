@@ -6,6 +6,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,7 +23,7 @@
                </font>
             </Label>
             <Button fx:id="_listenButton" layoutX="388.0" layoutY="380.0" mnemonicParsing="false" onAction="#Listen" prefHeight="29.0" prefWidth="76.0" text="LISTEN" />
-            <ImageView fx:id="_menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="_menuIcon" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/menu.png" />
                </image>
@@ -32,12 +33,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" onKeyPressed="#handleEnter" onKeyTyped="#handleEnter" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
+            <JFXTextField fx:id="_inputField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" onKeyPressed="#handleEnter" onKeyTyped="#handleEnter" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onKeyTyped="#handleEnter" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
+            <Label fx:id="_arrowIcon" layoutX="427.0" layoutY="225.0" onKeyTyped="#handleEnter" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
                <graphic>
                   <ImageView fitHeight="86.0" fitWidth="107.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,6 +46,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <tooltip>
+                  <Tooltip text="Add to name" />
+               </tooltip>
             </Label>
             <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
                <children>

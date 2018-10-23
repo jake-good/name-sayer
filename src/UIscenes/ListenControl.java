@@ -117,7 +117,7 @@ public class ListenControl implements Initializable {
     }
 
     public void report(String name) {
-        File reportFile = new File("ratings.txt");
+        File reportFile = new File("reports.txt");
         String line = "";
         try {
             Reader r = new BufferedReader(new FileReader(reportFile));
@@ -192,7 +192,7 @@ public class ListenControl implements Initializable {
 
         JFXButton reportChoice = new JFXButton("Report");
         reportChoice.setOnAction(e ->   {
-            if (!names.getSelectionModel().getSelectedItem().equals(null)) {
+            if (!names.getSelectionModel().isEmpty()) {
                 report(names.getSelectionModel().getSelectedItem());
                 popup.close();
             }

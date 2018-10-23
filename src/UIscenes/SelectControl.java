@@ -1,6 +1,7 @@
 package UIscenes;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXRippler;
@@ -50,6 +51,8 @@ public class SelectControl implements Initializable {
     @FXML private StackPane _parent;
     private boolean _expanded;
     private List<String> _nameIndividuals;
+    private List<String> _reportedNames;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +70,7 @@ public class SelectControl implements Initializable {
         normalise();
         //Tooltip for the Arrow image
         _addToolTip.setTooltip(new Tooltip("Add to the list of names"));
+        getReportedNames();
     }
 
     public void Listen() {
@@ -173,13 +177,15 @@ public class SelectControl implements Initializable {
     }
 
     public void add(){
-        if((_listName.contains(_name1.getText()))) {
+        if (_reportedNames.contains(_name1.getText())) {
+            errorPopUpButton("ERROR! The name you have chosen has been reported for poor quality", new JFXButton("Proceed regardless"), _name1.getText());
+        } else if((_listName.contains(_name1.getText()))) {
             //Save the names, which is used to create the Name Model.
             _concatName = _concatName + _name1.getText() + " ";
             _nameIndividuals.add(_name1.getText());
             //Updates the list view of all the chosen names.
             _nameText.setText(_concatName);
-        }else{
+        } else {
             errorPopUp("Wrong Input Error","ERROR! This name does not exist",
                     "Please either search a name through the \nsearch bar, or upload a list with names!");
         }
@@ -213,8 +219,37 @@ public class SelectControl implements Initializable {
         layout.setHeading(new Label(headerText));
         dialog.setContent(layout);
         dialog.show();
+    }
 
+    public void errorPopUpButton(String headerText, JFXButton button, String name){
+        JFXDialog dialog = new JFXDialog();
+        dialog.setDialogContainer(_parent);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        button.setOnAction(e-> {
+            _concatName = _concatName + name + " ";
+            _nameIndividuals.add(name);
+            //Updates the list view of all the chosen names.
+            _nameText.setText(_concatName);
+            dialog.close();
+        });
+        button.setStyle("-fx-background-color: orange");
+        layout.setBody(button);
+        layout.setHeading(new Label(headerText));
+        dialog.setContent(layout);
+        dialog.show();
+    }
 
-
+    public void getReportedNames() {
+        _reportedNames = new ArrayList<>();
+        File reportFile = new File("reports.txt");
+        String line = "";
+        try {
+            Reader r = new BufferedReader(new FileReader(reportFile));
+            while ((line = ((BufferedReader) r).readLine())!= null) {
+                _reportedNames.add(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading complaint log");
+        }
     }
 }

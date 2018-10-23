@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import java.lang.String?>
@@ -44,7 +45,6 @@
                   <Image url="@../images/icons8-arrow-filled-100.png" />
                </image>
             </ImageView>
-            <Label layoutX="719.0" layoutY="314.0" onMouseClicked="#chooseNamePrompt" text="Report this name" textFill="#fcfcfc" underline="true" />
             <ImageView fx:id="menu" fitHeight="31.0" fitWidth="60.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/menu.png" />
@@ -55,7 +55,7 @@
                   <JFXListView fx:id="_namesList" maxHeight="200.0" prefWidth="200.0" styleClass="jfx-list-view" stylesheets="@css/style.css" />
                </children>
             </Pane>
-            <Label fx:id="_expandList" layoutX="365.0" layoutY="478.0" text="View Names in list" textFill="#fffdfd" underline="true" />
+            <Label fx:id="_expandList" layoutX="195.0" layoutY="466.0" text="View Names in list" textFill="#fffdfd" underline="true" />
             <JFXProgressBar id="play" fx:id="_audioProgress" layoutX="185.0" layoutY="218.0" prefHeight="3.0" prefWidth="480.0" progress="0.0" stylesheets="@css/style.css" />
             <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
                <children>
@@ -102,6 +102,7 @@
                   </ImageView>
                </graphic>
             </Label>
+            <JFXButton buttonType="RAISED" layoutX="550.0" layoutY="461.0" mnemonicParsing="false" onAction="#chooseNamePrompt" ripplerFill="RED" text="Report a name file" textFill="WHITE" underline="true" />
          </children>
       </AnchorPane>
    </children>

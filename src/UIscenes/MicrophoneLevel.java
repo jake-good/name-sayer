@@ -12,6 +12,7 @@ public class MicrophoneLevel {
     private JFXProgressBar _progBar;
     private Thread _dataLine;
     private boolean _started;
+    private TargetDataLine _line;
 
     public MicrophoneLevel(JFXProgressBar progBar) {
         _progBar = progBar;
@@ -24,20 +25,23 @@ public class MicrophoneLevel {
          _dataLine = new Thread () {
             @Override
             public void run () {
-                TargetDataLine line = null;
+                _line = null;
                 AudioFormat format = new AudioFormat(8000.0F, 8, 1, true, false);
                 try {
-                    line = (TargetDataLine) AudioSystem.getTargetDataLine(format);
-                    line.open();
-                    line.start();
+                    _line = (TargetDataLine) AudioSystem.getTargetDataLine(format);
+                    _line.open();
+                    _line.start();
                 } catch (
                         LineUnavailableException ex) {}
 
                 byte [] buffer = new byte[2000];
                 while (true) {
-                    line.read(buffer, 0, buffer.length);
+                    _line.read(buffer, 0, buffer.length);
                     double progress = (double) getRMS(buffer)/50;
                     _progBar.setProgress(progress);
+                    if (!_line.isRunning() || !_line.isActive()) {
+                        break;
+                    }
                 }
             }
         };
@@ -45,7 +49,9 @@ public class MicrophoneLevel {
     }
 
     public void closeLine() {
-        _dataLine.interrupt();
+        if (_line.isActive()) {
+            _line.close();
+        }
     }
 
 

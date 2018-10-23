@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 import java.io.*;
 import java.net.URL;
@@ -21,7 +23,8 @@ public class ExtraControl implements Initializable {
     @FXML private Label _prompt;
     @FXML private JFXListView<String> _listView;
     @FXML private Tab _mic;
-    @FXML private Tab _prog;
+    @FXML private StackPane _pane;
+
     private List<String> _reports;
 
     private MicrophoneLevel _micLine;
@@ -37,6 +40,10 @@ public class ExtraControl implements Initializable {
             _namesPracticed.setText(Integer.toString(NameModel._ListenedNames.size()));
         }
         _namesInDB.setText(Integer.toString(NameModel._totalNames));
+
+        Main.getStage().setOnCloseRequest(e-> {
+            _micLine.closeLine();
+        });
     }
 
     public void getReports() {

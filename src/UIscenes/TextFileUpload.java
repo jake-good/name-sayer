@@ -7,16 +7,15 @@ import javafx.stage.Window;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class textFileUpload {
+public class TextFileUpload {
 
     private List<String> _dataBaseNames;
     private SelectControl _selectControl;
 
-    public textFileUpload(List<String> dataBaseNames, SelectControl selectControl){
+    public TextFileUpload(List<String> dataBaseNames, SelectControl selectControl){
         _dataBaseNames = dataBaseNames;
         _selectControl = selectControl;
     }

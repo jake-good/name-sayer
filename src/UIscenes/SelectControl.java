@@ -12,14 +12,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import org.controlsfx.control.textfield.TextFields;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -93,7 +89,7 @@ public class SelectControl implements Initializable {
      * Lets the user choose a text file to upload, which will then load the chosen names into the application.
      */
     public void uploadTextFile(){
-        new textFileUpload(_dataBaseNames,this).uploadFile();
+        new TextFileUpload(_dataBaseNames,this).uploadFile();
     }
 
 

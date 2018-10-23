@@ -27,18 +27,17 @@
                   <Image url="@../images/menu.png" />
                </image>
             </ImageView>
-            <Label fx:id="_reports" layoutX="676.0" layoutY="453.0" text="View Reported Names" textFill="WHITE" underline="true" />
             <Label fx:id="_nameText" layoutX="551.0" layoutY="227.0" maxHeight="65.0" maxWidth="295.0" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
+            <JFXTextField fx:id="_name1" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="227.0" onKeyPressed="#handleEnter" onKeyTyped="#handleEnter" prefHeight="48.0" prefWidth="266.0" promptText="Search Name" style="-fx-prompt-text-fill: #e2be8e;" unFocusColor="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0">
+            <Label fx:id="_addToolTip" layoutX="427.0" layoutY="225.0" onKeyTyped="#handleEnter" onMouseClicked="#add" prefHeight="55.0" prefWidth="70.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
                <graphic>
                   <ImageView fitHeight="86.0" fitWidth="107.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +72,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutX="363.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#uploadFile" style="-fx-background-color: #394a66;" text="Upload a list instead" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="338.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#uploadFile" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="Upload a list instead" textFill="WHITE">
                <graphic>
                   <Label fx:id="_uploadList" onMouseClicked="#uploadFile" textFill="WHITE" underline="true">
                      <font>
@@ -89,7 +88,7 @@
                   </Label>
                </graphic>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="638.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#clear" prefHeight="29.0" prefWidth="76.0" ripplerFill="#ff0505" style="-fx-background-color: #394a66;" text="Clear" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="638.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#clear" prefHeight="29.0" prefWidth="76.0" ripplerFill="#ff0505" style="-fx-background-color: #4f607c;" text="Clear" textFill="WHITE">
                <graphic>
                   <Label>
                      <graphic>

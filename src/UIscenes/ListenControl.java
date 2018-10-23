@@ -62,9 +62,6 @@ public class ListenControl implements Initializable {
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
-        _expandList.setOnMouseClicked(event -> {
-            listTransition();
-        });
 
         if (NameModel._Names.size() > 1) {
             for (NameModel name : NameModel._Names) {
@@ -136,8 +133,8 @@ public class ListenControl implements Initializable {
 
     public void listTransition() {
         TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _listViewPane);
-        slideIn.setFromY(250);
-        slideIn.setToY(0);
+        slideIn.setFromX(-200);
+        slideIn.setToX(0);
 
         if (!_nameListExpanded) {
             slideIn.setRate(1);

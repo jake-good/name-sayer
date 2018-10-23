@@ -18,6 +18,8 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -61,9 +63,6 @@ public class SelectControl implements Initializable {
         _nameIndividuals = new ArrayList<>();
         _menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
-        });
-        _reports.setOnMouseClicked(event -> {
-                new sceneChange("REPORT", 350, 300);
         });
         setUp();
         //Normalise the audio, only when it's the first time it is booted up.
@@ -252,4 +251,12 @@ public class SelectControl implements Initializable {
             System.out.println("Error loading complaint log");
         }
     }
+
+    public void handleEnter(KeyEvent ke) {
+        if (ke.getCode().equals(KeyCode.ENTER)) {
+            add();
+        }
+    }
+
+
 }

@@ -62,7 +62,7 @@ public class SelectControl implements Initializable {
         if (!_isList && !_concatName.equals("")) {
             //parse(_name.getText());
             new NameModel(_concatName, _nameIndividuals);
-            new sceneChange("LISTEN", "SELECT");
+            new SceneChange("LISTEN", "SELECT");
         }else{
             //When the user tries to enter the listen menu without a valid input, show a warning dialog with steps
             //To fix the problem.
@@ -75,14 +75,14 @@ public class SelectControl implements Initializable {
      * Changes the screen to the EXTRA screen.
      */
     public void extra() {
-        new sceneChange("EXTRA", "SELECT");
+        new SceneChange("EXTRA", "SELECT");
     }
 
     /**
      * Changes the screen to the RANDOM screen.
      */
     public void Random() {
-        new sceneChange("RANDOM", "SELECT");
+        new SceneChange("RANDOM", "SELECT");
     }
 
     /**

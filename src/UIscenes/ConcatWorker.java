@@ -8,12 +8,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class concatWorker extends SwingWorker<Void,Void> {
+public class ConcatWorker extends SwingWorker<Void,Void> {
 
     private String _input;
     private String _cmd = "";
 
-    public concatWorker(String input){
+    public ConcatWorker(String input){
         _input = input;
     }
 

@@ -45,22 +45,22 @@ public class ListenControl implements Initializable {
     private Timeline _playTime;
 
     public void Record() {
-        new sceneChange("RECORD", "LISTEN");
+        new SceneChange("RECORD", "LISTEN");
     }
 
     public void Extra() {
-        new sceneChange("EXTRA", "LISTEN");
+        new SceneChange("EXTRA", "LISTEN");
     }
 
     public void Random() {
-        new sceneChange("RANDOM", "LISTEN");
+        new SceneChange("RANDOM", "LISTEN");
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setName();
-        new concatWorker(_currentName._Name).execute();
+        new ConcatWorker(_currentName._Name).execute();
         menu.setOnMouseClicked(event -> {
             _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
         });
@@ -75,8 +75,11 @@ public class ListenControl implements Initializable {
         }
     }
 
+    /**
+     * Change the screen to the SELECT screen.
+     */
     public void Select() {
-        new sceneChange("SELECT", "LISTEN");
+        new SceneChange("SELECT", "LISTEN");
         NameModel._Names.clear();
         NameModel._currentName = 0;
     }
@@ -86,10 +89,13 @@ public class ListenControl implements Initializable {
         _nameLabel.setText(_currentName.getName());
     }
 
+    /**
+     * Moves to the next full name.
+     */
     public void next() {
         boolean hasNext = NameModel.next();
         setName();
-        new concatWorker(_currentName._Name).execute();
+        new ConcatWorker(_currentName._Name).execute();
         if (!hasNext) {
             _nextArrow.setVisible(false);
         } else {
@@ -97,10 +103,13 @@ public class ListenControl implements Initializable {
         } _prevArrow.setVisible(true);
     }
 
+    /**
+     * Moves to the previous full name.
+     */
     public void previous() {
         boolean hasPrev = NameModel.prev();
         setName();
-        new concatWorker(_currentName._Name).execute();
+        new ConcatWorker(_currentName._Name).execute();
         if (!hasPrev) {
             _prevArrow.setVisible(false);
         } else {
@@ -110,7 +119,7 @@ public class ListenControl implements Initializable {
 
     public void play() {
         // Play the current name via the filename
-        new playWorker("output.wav").execute();
+        new PlayWorker("output.wav").execute();
         playProgress(getWavLength());
         _currentName.addToListened();
     }
@@ -133,6 +142,9 @@ public class ListenControl implements Initializable {
         }
     }
 
+    /**
+     * Expands and collapses the list view pane.
+     */
     public void listTransition() {
         TranslateTransition slideIn = new TranslateTransition(Duration.millis(250), _listViewPane);
         slideIn.setFromX(-200);

@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.io.*;
@@ -65,10 +64,13 @@ public class ExtraControl implements Initializable {
     }
 
     public void back() {
-        new sceneChange(Main.getPreviousScene(), Main.getPreviousScene());
+        new SceneChange(Main.getPreviousScene(), Main.getPreviousScene());
         _micLine.closeLine();
     }
 
+    /**
+     * Removes the selected name from the reported list.
+     */
     public void remove() {
         if (!_listView.getSelectionModel().isEmpty()) {
             String toRemove = _listView.getSelectionModel().getSelectedItem();

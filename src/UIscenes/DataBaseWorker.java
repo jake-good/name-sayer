@@ -9,8 +9,12 @@ import java.util.List;
 
 public class DataBaseWorker {
 
+    /**
+     *Processes all the names in the database into a workable format and is also human readable.
+     */
     protected List<String> process() {
         List<String> listName = new ArrayList<>();
+        //Lists all the wav files in the database in a human readable format.
         ProcessBuilder listBuilder = new ProcessBuilder("/bin/bash", "-c", "ls DataBase-VoNZ-word -1 | sed 's/.*_//' | sed -n 's/\\.wav$//p'");
         try{
             Process listProcess = listBuilder.start();

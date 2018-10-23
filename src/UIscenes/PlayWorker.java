@@ -2,16 +2,17 @@ package UIscenes;
 
 import javax.swing.*;
 
-public class playWorker extends SwingWorker<Void,Void> {
+public class PlayWorker extends SwingWorker<Void,Void> {
 
     private String _fileName;
 
-    public playWorker(String fileName){
+    public PlayWorker(String fileName){
         _fileName = fileName;
     }
 
     @Override
     public Void doInBackground(){
+        //Plays the specified audio file.
         String cmd = "ffplay -nodisp " + _fileName + " -autoexit";
         System.out.println(cmd);
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",

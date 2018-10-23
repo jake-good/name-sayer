@@ -9,14 +9,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-import javax.naming.TimeLimitExceededException;
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class RandomControl implements Initializable {
 
@@ -35,14 +32,14 @@ public class RandomControl implements Initializable {
     }
 
     public void back() {
-        new sceneChange(Main.getPreviousScene(), Main.getPreviousScene());
+        new SceneChange(Main.getPreviousScene(), Main.getPreviousScene());
     }
 
     public void playRandom() {
         Random random = new Random();
         int choice = random.nextInt(_names.size());
 
-        new concatWorker(_names.get(choice)).execute();
+        new ConcatWorker(_names.get(choice)).execute();
         loadProgress(choice);
     }
 
@@ -52,7 +49,7 @@ public class RandomControl implements Initializable {
                 new KeyFrame(Duration.ZERO, new KeyValue(_loadSpinner.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(1), e -> {
                     _nameLabel.setText(_names.get(choice));
-                    new playWorker("output.wav").execute();
+                    new PlayWorker("output.wav").execute();
                     },
                 new KeyValue(_loadSpinner.progressProperty(), 1))
         );

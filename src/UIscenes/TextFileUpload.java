@@ -68,7 +68,7 @@ public class TextFileUpload {
                 }
             }
         }
-        new sceneChange("LISTEN", "SELECT");
+        new SceneChange("LISTEN", "SELECT");
     }
 
 }

@@ -96,6 +96,9 @@ public class SelectControl implements Initializable {
     }
 
 
+    /**
+     * Loads a text file that the user has chosen to upload.
+     */
     public void uploadFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
@@ -112,13 +115,16 @@ public class SelectControl implements Initializable {
         }
     }
 
-    public void getList(String name) throws Exception {
-        File namesList = new File("names.txt");
+    /**
+     * Uses the uploaded text file to load all the names into the application.
+     * @param fileName
+     * @throws Exception
+     */
+    public void getList(String fileName) throws Exception {
+        File namesList = new File(fileName);
         try (BufferedReader br = new BufferedReader(new FileReader(namesList))) {
             String line;
             while ((line = br.readLine()) != null) {
-                //parse(line);
-
                 //This checks if all the names are valid, if not, an error dialogue pops up informing the user that
                 //There is an error.
                 String [] individualWords = line.split(" ");

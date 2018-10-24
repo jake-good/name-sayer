@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
@@ -10,17 +11,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="_parent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIscenes.RecordControl">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #394a66;" styleClass="progress-bar" stylesheets="@css/style.css">
          <children>
-            <VBox alignment="CENTER" layoutX="81.0" layoutY="250.0" />
-            <HBox layoutX="168.0" layoutY="282.0" />
             <Button fx:id="c" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#Compare" prefHeight="29.0" text="COMPARE" />
-            <Button fx:id="_playButton" layoutX="329.0" layoutY="340.0" mnemonicParsing="false" onAction="#Play" prefHeight="29.0" prefWidth="76.0" text="PLAY" visible="false" />
             <HBox layoutX="309.0" layoutY="106.0" spacing="40.0">
                <children>
                   <Label text="Name:" textFill="WHITE">
@@ -35,7 +32,6 @@
                   </Label>
                </children>
             </HBox>
-            <Button fx:id="_discardButton" layoutX="448.0" layoutY="340.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" text="DISCARD" visible="false" />
             <ImageView fx:id="Mic" fitHeight="82.0" fitWidth="78.0" layoutX="227.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/icons/mirc.png" />
@@ -46,8 +42,6 @@
                   <Image url="@../images/menu.png" />
                </image>
             </ImageView>
-            <Button fx:id="cr" layoutX="348.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" text="BEGIN RECORDING" />
-            <Button fx:id="d1" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" text="STOP" />
             <AnchorPane fx:id="_slideInMenu" layoutX="70.0" maxHeight="47.0" maxWidth="780.0" prefHeight="47.0" prefWidth="780.0" translateY="-47.0">
                <children>
                   <Label fx:id="_homeLabel" graphicTextGap="0.0" onMouseClicked="#Select" stylesheets="@css/style.css" text="HOME" wrapText="true">
@@ -87,7 +81,7 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="636.0" onMouseClicked="#Extra" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="636.0" onMouseClicked="#Random" prefHeight="47.0" prefWidth="65.0" stylesheets="@css/style.css" textAlignment="CENTER" wrapText="true">
                      <styleClass>
                         <String fx:value="menuLabel" />
                         <String fx:value="text" />
@@ -95,7 +89,7 @@
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="50.0" onMouseClicked="#Extra" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons/stats.png" />
+                              <Image url="@../images/icons/icons8-shuffle-96.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -103,6 +97,10 @@
                </children>
             </AnchorPane>
             <JFXProgressBar fx:id="_recordingProgress" layoutX="336.0" layoutY="214.0" prefWidth="200.0" progress="0.0" styleClass="jfx-progress-bar" stylesheets="@css/style.css" />
+            <JFXButton buttonType="RAISED" layoutX="334.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="BEGIN RECORDING" />
+            <JFXButton buttonType="RAISED" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="STOP" />
+            <JFXButton fx:id="_discardButton" buttonType="RAISED" layoutX="460.0" layoutY="275.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="DISCARD" visible="false" />
+            <JFXButton fx:id="_playButton" buttonType="RAISED" layoutX="370.0" layoutY="276.0" mnemonicParsing="false" onAction="#Play" prefHeight="10.0" prefWidth="50.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="PLAY" visible="false" />
          </children>
       </AnchorPane>
    </children>

@@ -85,6 +85,8 @@ public class RecordControl implements Initializable {
         Mic.setImage(image);
         _recButton.setDisable(true);
         new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
+
+
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
         _recWorker = new RecordingWorker(_currentName.getName(), Mic, _recButton);
         _recWorker.execute();
@@ -96,8 +98,6 @@ public class RecordControl implements Initializable {
         );
         _recTime.setCycleCount(1);
         _recTime.play();
-
-
         _playButton.setVisible(true);
         _discardButton.setVisible(true);
     }
@@ -119,6 +119,9 @@ public class RecordControl implements Initializable {
         new PlayWorker("'DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav'").execute();
     }
 
+    /**
+     * Build a dialog warning the user that they have not yet get a recording
+     */
     public void warning() {
         JFXDialog dialog = new JFXDialog();
         dialog.setDialogContainer(_parent);

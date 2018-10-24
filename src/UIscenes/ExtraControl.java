@@ -45,6 +45,9 @@ public class ExtraControl implements Initializable {
         });
     }
 
+    /**
+     * Get the reports from the text file to update the listView
+     */
     public void getReports() {
         _reports = new ArrayList<>();
         File rep = new File("reports.txt");
@@ -84,6 +87,10 @@ public class ExtraControl implements Initializable {
         _listView.getItems().setAll(_reports);
     }
 
+    /**
+     * Updates the report file with the new list of reports, to be done when the user removes a name from the list
+     * @param _reports
+     */
     public void writeReports(List<String> _reports) {
         File reports = new File("reports.txt");
         try {

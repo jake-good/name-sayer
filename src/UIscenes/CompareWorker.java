@@ -13,6 +13,11 @@ public class CompareWorker extends SwingWorker<Void,Void> {
         _numberOfCompares = numberOfCompares;
     }
 
+    /**
+     * creates a process that compares the two files given in the compare scene by playing each
+     * sequentially for the set amount of times.
+     * @return
+     */
     @Override
     public Void doInBackground(){
         //Play the audio file of the users attempt at saying the name.

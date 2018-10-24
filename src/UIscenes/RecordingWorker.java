@@ -21,6 +21,10 @@ public class RecordingWorker extends SwingWorker<Void,Void> {
         _button = button;
     }
 
+    /**
+     * Make a process that calls the ffmpeg command to record audio for 10 seconds
+     * @return
+     */
     @Override
     public Void doInBackground(){
         new File("DataBase-VoNZ-word/"+ _currentName + "/attempt.wav").delete();

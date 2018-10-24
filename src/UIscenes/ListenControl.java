@@ -185,6 +185,10 @@ public class ListenControl implements Initializable {
         return duration;
     }
 
+    /**
+     * Creates a timeline to represent the progress of the name as it plays by getting its total length.
+     * @param duration
+     */
     public void playProgress(double duration) {
         // Create a progress bar indicating the duration of recording.
         _playTime = new Timeline(
@@ -195,6 +199,10 @@ public class ListenControl implements Initializable {
         _playTime.play();
     }
 
+    /**
+     * Method called after the user chooses to report a name. This method prompts the user
+     * to select a name from the list of names.
+     */
     public void chooseNamePrompt() {
         JFXDialog popup = new JFXDialog();
         JFXDialogLayout content = new JFXDialogLayout();

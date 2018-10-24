@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,24 +25,24 @@ public class AssessControl implements Initializable {
     @FXML private Label _dateBaseAttempToolTip;
 
     public void Return() {
-        new sceneChange("RECORD", "ASSESS");
+        new SceneChange("RECORD", "ASSESS");
     }
 
-    public void Select() { new sceneChange("SELECT", "ASSESS");
+    public void Select() { new SceneChange("SELECT", "ASSESS");
         NameModel._Names.clear();
         NameModel._currentName = 0;
     }
 
     public void Listen() {
-        new sceneChange("LISTEN", "ASSESS");
+        new SceneChange("LISTEN", "ASSESS");
     }
 
     public void Extra() {
-        new sceneChange("EXTRA", "ASSESS");
+        new SceneChange("EXTRA", "ASSESS");
     }
 
     public void Random() {
-        new sceneChange("RANDOM", "ASSESS");
+        new SceneChange("RANDOM", "ASSESS");
     }
 
 
@@ -51,17 +50,17 @@ public class AssessControl implements Initializable {
 
 
     public void playAttempt(){
-        new playWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'").execute();
+        new PlayWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'").execute();
     }
 
     public void playDataBase(){
-        new playWorker("output.wav").execute();
+        new PlayWorker("output.wav").execute();
     }
 
 
     public void compareRecordings(){
         int numberOfCompares = _numberOfCompares.getValue();
-        new compareWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'",numberOfCompares).execute();
+        new CompareWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'",numberOfCompares).execute();
     }
 
     @Override

@@ -15,11 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -41,7 +37,7 @@ public class RecordControl implements Initializable {
 
     @FXML private ProgressBar _recordingProgress;
     private boolean _expanded;
-    private recordingWorker _recWorker;
+    private RecordingWorker _recWorker;
     private Timeline _recTime;
 
 
@@ -50,25 +46,25 @@ public class RecordControl implements Initializable {
         if (!_playButton.isVisible()) {
             warning();
         } else {
-            new sceneChange("ASSESS", "RECORD");
+            new SceneChange("ASSESS", "RECORD");
         }
     }
 
-    public void Select() { new sceneChange("SELECT", "RECORD");
+    public void Select() { new SceneChange("SELECT", "RECORD");
         NameModel._Names.clear();
         NameModel._currentName = 0;
     }
 
     public void Listen() {
-        new sceneChange("LISTEN", "RECORD");
+        new SceneChange("LISTEN", "RECORD");
     }
 
     public void Extra() {
-        new sceneChange("EXTRA", "RECORD");
+        new SceneChange("EXTRA", "RECORD");
     }
 
     public void Random() {
-        new sceneChange("RANDOM", "RECORD");
+        new SceneChange("RANDOM", "RECORD");
     }
 
 
@@ -89,7 +85,7 @@ public class RecordControl implements Initializable {
 
         new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
-        _recWorker = new recordingWorker(_currentName.getName(), Mic);
+        _recWorker = new RecordingWorker(_currentName.getName(), Mic);
         _recWorker.execute();
 
         // Create a 10sec progress bar indicating the duration of recording.
@@ -119,7 +115,7 @@ public class RecordControl implements Initializable {
     }
 
     public void Play() {
-        new playWorker("'DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav'").execute();
+        new PlayWorker("'DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav'").execute();
     }
 
     public void warning() {

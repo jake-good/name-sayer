@@ -2,19 +2,20 @@ package UIscenes;
 
 import javax.swing.*;
 
-public class compareWorker extends SwingWorker<Void,Void> {
+public class CompareWorker extends SwingWorker<Void,Void> {
 
     private String _fileName;
     private int _numberOfCompares;
     public int _currentNumberOfCompares = 1;
 
-    public compareWorker(String fileName, int numberOfCompares){
+    public CompareWorker(String fileName, int numberOfCompares){
         _fileName = fileName;
         _numberOfCompares = numberOfCompares;
     }
 
     @Override
     public Void doInBackground(){
+        //Play the audio file of the users attempt at saying the name.
         String cmd = "ffplay -nodisp " + _fileName + " -autoexit";
         System.out.println(cmd);
         ProcessBuilder builder = new ProcessBuilder("bash", "-c",
@@ -23,6 +24,7 @@ public class compareWorker extends SwingWorker<Void,Void> {
             Process process = builder.start();
             process.waitFor();
 
+            //Play the databases recording of the names.
             String cmdDatabase = "ffplay -nodisp output.wav -autoexit";
             ProcessBuilder datebaseBuilder = new ProcessBuilder("bash","-c",cmdDatabase);
             Process databaseProcess = datebaseBuilder.start();
@@ -35,11 +37,14 @@ public class compareWorker extends SwingWorker<Void,Void> {
         return null;
     }
 
+    /**
+     * Recursively plays both audio files until it reaches the users desired amount of compares.
+     */
     @Override
     public void done(){
         if(_currentNumberOfCompares<_numberOfCompares){
             _currentNumberOfCompares++;
-            new compareWorker(_fileName,_numberOfCompares-1).execute();
+            new CompareWorker(_fileName,_numberOfCompares-1).execute();
         }
     }
 

@@ -7,13 +7,13 @@ import javafx.scene.image.ImageView;
 import javax.swing.*;
 import java.io.File;
 
-public class recordingWorker extends SwingWorker<Void,Void> {
+public class RecordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
     private ImageView _Mic;
     Process recProcess;
 
-    public recordingWorker(String currentName, ImageView Mic){
+    public RecordingWorker(String currentName, ImageView Mic){
         _currentName = currentName;
         _Mic = Mic;
     }

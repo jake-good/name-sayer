@@ -8,9 +8,9 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class sceneChange {
+public class SceneChange {
 
-    public sceneChange(String scene, String previous) {
+    public SceneChange(String scene, String previous) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(scene + ".fxml"));
@@ -22,7 +22,7 @@ public class sceneChange {
 
     }
 
-    public sceneChange(String scene, int Width, int Height) {
+    public SceneChange(String scene, int Width, int Height) {
         Parent root = null;
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);

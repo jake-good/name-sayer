@@ -1,6 +1,7 @@
 package UIscenes;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import javafx.animation.KeyFrame;
@@ -24,23 +25,31 @@ import java.util.ResourceBundle;
 
 public class RecordControl implements Initializable {
 
-    private NameModel _currentName;
-    public Label Name;
-    public TextField _recordingName;
-    public ImageView Mic;
-    @FXML
-    private ImageView _menu;
+    @FXML private Label Name;
+    @FXML private ImageView Mic;
+    @FXML private ImageView _menu;
     @FXML private AnchorPane _slideInMenu;
     @FXML private Button _playButton;
+    @FXML private JFXButton _recButton;
     @FXML private Button _discardButton;
     @FXML private StackPane _parent;
-
     @FXML private ProgressBar _recordingProgress;
+
+    private NameModel _currentName;
     private boolean _expanded;
     private RecordingWorker _recWorker;
     private Timeline _recTime;
 
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        _currentName = NameModel._Names.get(NameModel._currentName);
+        Name.setText(_currentName.getName());
+        _menu.setOnMouseClicked(event -> {
+            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
+        });
+    }
 
     public void Compare() {
         if (!_playButton.isVisible()) {
@@ -69,23 +78,15 @@ public class RecordControl implements Initializable {
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        _currentName = NameModel._Names.get(NameModel._currentName);
-        Name.setText(_currentName.getName());
-        _menu.setOnMouseClicked(event -> {
-            _expanded = new SlideMenu(_slideInMenu, _expanded).SlideMenuMake();
-        });
-    }
 
     public void Record() {
         File file = new File("src/images/icons/micOrange.png");
         javafx.scene.image.Image image = new Image(file.toURI().toString());
         Mic.setImage(image);
-
+        _recButton.setDisable(true);
         new File("DataBase-VoNZ-word/" + _currentName.getName()).mkdir();
         //Use a swingworker to prevent the GUI from freezing when recording the attempt.
-        _recWorker = new RecordingWorker(_currentName.getName(), Mic);
+        _recWorker = new RecordingWorker(_currentName.getName(), Mic, _recButton);
         _recWorker.execute();
 
         // Create a 10sec progress bar indicating the duration of recording.

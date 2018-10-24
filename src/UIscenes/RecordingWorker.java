@@ -1,5 +1,6 @@
 package UIscenes;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,11 +12,13 @@ public class RecordingWorker extends SwingWorker<Void,Void> {
 
     private String _currentName;
     private ImageView _Mic;
+    private JFXButton _button;
     Process recProcess;
 
-    public RecordingWorker(String currentName, ImageView Mic){
+    public RecordingWorker(String currentName, ImageView Mic, JFXButton button){
         _currentName = currentName;
         _Mic = Mic;
+        _button = button;
     }
 
     @Override
@@ -46,6 +49,7 @@ public class RecordingWorker extends SwingWorker<Void,Void> {
                 File file = new File("src/images/black-mic.png");
                 javafx.scene.image.Image image = new Image(file.toURI().toString());
                 _Mic.setImage(image);
+                _button.setDisable(false);
             }
         });
     }

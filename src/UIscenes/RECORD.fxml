@@ -97,7 +97,7 @@
                </children>
             </AnchorPane>
             <JFXProgressBar fx:id="_recordingProgress" layoutX="336.0" layoutY="214.0" prefWidth="200.0" progress="0.0" styleClass="jfx-progress-bar" stylesheets="@css/style.css" />
-            <JFXButton buttonType="RAISED" layoutX="334.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="BEGIN RECORDING" />
+            <JFXButton fx:id="_recButton" buttonType="RAISED" layoutX="334.0" layoutY="160.0" mnemonicParsing="false" onAction="#Record" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="BEGIN RECORDING" />
             <JFXButton buttonType="RAISED" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#stopRecording" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="STOP" />
             <JFXButton fx:id="_discardButton" buttonType="RAISED" layoutX="460.0" layoutY="275.0" mnemonicParsing="false" onAction="#Discard" prefHeight="29.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="DISCARD" visible="false" />
             <JFXButton fx:id="_playButton" buttonType="RAISED" layoutX="370.0" layoutY="276.0" mnemonicParsing="false" onAction="#Play" prefHeight="10.0" prefWidth="50.0" ripplerFill="#f88000" style="-fx-background-color: #4f607c;" text="PLAY" visible="false" />

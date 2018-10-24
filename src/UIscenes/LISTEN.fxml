@@ -108,7 +108,7 @@
             </Label>
             <JFXButton buttonType="RAISED" layoutX="550.0" layoutY="461.0" mnemonicParsing="false" onAction="#chooseNamePrompt" ripplerFill="RED" style="-fx-background-color: #4f607c;" text="Report a name file" textFill="WHITE" underline="true" />
             <JFXButton buttonType="RAISED" layoutX="161.0" layoutY="461.0" mnemonicParsing="false" onAction="#listTransition" ripplerFill="#00ff15" style="-fx-background-color: #4f607c;" text="View names in list" textFill="WHITE" underline="true" />
-            <Label layoutX="15.0" layoutY="426.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
+            <Label layoutX="15.0" layoutY="426.0" onMouseClicked="#previous" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
                <graphic>
                   <ImageView fx:id="_prevArrow" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#previous" rotate="180.0">
                      <image>
@@ -117,7 +117,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label layoutX="776.0" layoutY="431.0" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
+            <Label layoutX="776.0" layoutY="431.0" onMouseClicked="#next" style="-fx-background-radius: 5;" styleClass="menuLabel" stylesheets="@css/style.css">
                <graphic>
                   <ImageView fx:id="_nextArrow" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#next">
                      <image>

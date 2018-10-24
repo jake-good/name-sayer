@@ -43,6 +43,9 @@ public class RecordingWorker extends SwingWorker<Void,Void> {
         return null;
     }
 
+    /**
+     * Updates the image of the microphone when it is done, to correctly represent what state it is in.
+     */
     @Override
     public void done(){
         Platform.runLater(new Runnable() {

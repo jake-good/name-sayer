@@ -124,6 +124,10 @@ public class ListenControl implements Initializable {
         _currentName.addToListened();
     }
 
+    /**
+     * Adds the specified name into the reported list of bad names.
+     * @param name
+     */
     public void report(String name) {
         File reportFile = new File("reports.txt");
         String line = "";

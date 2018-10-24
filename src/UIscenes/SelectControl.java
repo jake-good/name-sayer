@@ -126,6 +126,9 @@ public class SelectControl implements Initializable {
         _inputField.clear();
     }
 
+    /**
+     * Clears all the current names that have been selected from the _nameText. It resets the names selected.
+     */
     public void clear() {
         _concatName = "";
         _nameText.setText(_concatName);
@@ -173,6 +176,9 @@ public class SelectControl implements Initializable {
         dialog.show();
     }
 
+    /**
+     * Shows the all the names that have been reported to be of bad quality, to the user.
+     */
     public void getReportedNames() {
         _reportedNames = new ArrayList<>();
         File reportFile = new File("reports.txt");
@@ -187,6 +193,10 @@ public class SelectControl implements Initializable {
         }
     }
 
+    /**
+     * Allows the user to press enter, to enter a name.
+     * @param ke
+     */
     public void handleEnter(KeyEvent ke) {
         if (ke.getCode().equals(KeyCode.ENTER)) {
             add();

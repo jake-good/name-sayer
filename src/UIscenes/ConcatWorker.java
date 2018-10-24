@@ -17,6 +17,10 @@ public class ConcatWorker extends SwingWorker<Void,Void> {
         _input = input;
     }
 
+    /**
+     * Merges the audio files of the specified names into one single audio file. As this process takes time, it is
+     * done on a worker thread.
+     */
     @Override
     public Void doInBackground(){
         String[] names  = _input.split(" |-");
@@ -50,11 +54,13 @@ public class ConcatWorker extends SwingWorker<Void,Void> {
 
         int numberOfNames = 0;
 
+        //Formats the names into the correct way, so that it can be used in the FFmpeg command to merge the files.
         String concatNames = "";
         for(String currentName : files){
             concatNames = concatNames + " -i " + currentName;
             numberOfNames++;
         }
+        //Uses the FFmpeg tool to merge all the specified audio files into one wav file. Creating a full name audio file.
         String command = "ffmpeg " + concatNames + " -filter_complex '[0:0]concat=n=" + numberOfNames + ":v=0:a=1[out]' -map '[out]' output.wav";
         ProcessBuilder concatBuilder = new ProcessBuilder("bash", "-c", command);
         try {

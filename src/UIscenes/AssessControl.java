@@ -46,18 +46,25 @@ public class AssessControl implements Initializable {
     }
 
 
-
-
-
+    /**
+     * Plays the users' audio recording of saying the name.
+     */
     public void playAttempt(){
         new PlayWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'").execute();
     }
 
+    /**
+     * Plays the databases audio recording saying the name.
+     */
     public void playDataBase(){
         new PlayWorker("output.wav").execute();
     }
 
 
+    /**
+     * Plays the users attempt and then the databases recording sequentially. This gets repeated for how many time
+     * The user has specified for.
+     */
     public void compareRecordings(){
         int numberOfCompares = _numberOfCompares.getValue();
         new CompareWorker("'DataBase-VoNZ-word/"+ _currentName._Name + "/attempt.wav'",numberOfCompares).execute();

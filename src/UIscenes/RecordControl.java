@@ -109,6 +109,10 @@ public class RecordControl implements Initializable {
         _recTime.stop();
     }
 
+    /**
+     * Deletes the users attempt at saying the name. Also hides the buttons to play and discard to prevent the user
+     * From pressing them, when they will not do anything.
+     */
     public void Discard() {
         new File("DataBase-VoNZ-word/"+ _currentName.getName() + "/attempt.wav").delete();
         _playButton.setVisible(false);

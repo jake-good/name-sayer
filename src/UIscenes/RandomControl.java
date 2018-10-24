@@ -35,6 +35,9 @@ public class RandomControl implements Initializable {
         new SceneChange(Main.getPreviousScene(), Main.getPreviousScene());
     }
 
+    /**
+     * Randomly chooses a name in the database, and then plays the audio file of that chosen name.
+     */
     public void playRandom() {
         Random random = new Random();
         int choice = random.nextInt(_names.size());
@@ -44,6 +47,10 @@ public class RandomControl implements Initializable {
     }
 
 
+    /**
+     * Loads the progress circle with it's current progress. Once it reaches 100% it plays the selected audio file.
+     * @param choice
+     */
     public void loadProgress(int choice) {
         _playTime = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(_loadSpinner.progressProperty(), 0)),
